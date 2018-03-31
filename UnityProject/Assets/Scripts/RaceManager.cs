@@ -39,6 +39,8 @@ public class RaceManager : Singleton<RaceManager>
         checkpoints = FindObjectsOfType<Checkpoint>();
         if(checkpoints.Length == 0)
             Debug.LogWarning("No checkpoints in current scene!");
+
+        RestartRace();
     }
 
     private void Update()
@@ -76,6 +78,8 @@ public class RaceManager : Singleton<RaceManager>
 
     private void RestartRace()
     {
+        Inventory.Clear();
+
         for (int i = 0; i < checkpoints.Length; i++)
             checkpoints[i].gameObject.SetActive(true);
 

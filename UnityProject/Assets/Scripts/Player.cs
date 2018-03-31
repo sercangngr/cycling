@@ -18,10 +18,6 @@ public class Player : MonoBehaviour
         EventManager.gameOver.AddListener(GameOver);
         EventManager.restartRace.AddListener(RestartRace);
         EventManager.pause.AddListener(Pause);
-    }
-
-    void Start()
-    {
         cont = Controller.Instance;
         Utils.SetComponent(out rigid, transform, true);
     }
