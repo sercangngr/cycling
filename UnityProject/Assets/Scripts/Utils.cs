@@ -16,6 +16,17 @@ public static class Utils
         return true;
     }
 
+    public static bool SetObjectWithTag(out GameObject obj, string tag)
+    {
+        obj = GameObject.FindWithTag(tag);
+        if(obj == null)
+        {
+            Debug.LogError("Cannot find object with tag " + tag);
+            return false;
+        }
+        return true;
+    }
+
     public static bool SetComponent<T>(out T obj, Transform t, bool needWarning = false) where T : Component
     {
         obj = t.GetComponent<T>();
