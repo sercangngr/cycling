@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
         EventManager.gameOver.AddListener(GameOver);
         EventManager.restartRace.AddListener(RestartRace);
         EventManager.pause.AddListener(Pause);
+        EventManager.start.AddListener(StartRace);
+
         cont = Controller.Instance;
         Utils.SetComponent(out rigid, transform, true);
     }
@@ -66,6 +68,12 @@ public class Player : MonoBehaviour
         rigid.position = startPos.position;
         rigid.rotation = startPos.rotation;
         rigid.velocity = Vector3.zero;
+        rigid.isKinematic = false;
+        canControl = false;
+    }
+
+    private void StartRace()
+    {
         canControl = true;
     }
 

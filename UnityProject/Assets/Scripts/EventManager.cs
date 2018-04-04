@@ -28,6 +28,12 @@ public class PowerUpRemovedFromInventory : UnityEvent<PowerUp>
 public class InventoryCleared : UnityEvent
 { }
 
+public class Start : UnityEvent
+{ }
+
+public class RequestRestart : UnityEvent
+{ }
+
 public static class EventManager
 {
     public static CheckpointPicked checkpointPickedUp = new CheckpointPicked();
@@ -39,4 +45,6 @@ public static class EventManager
     public static PowerUpAddedToInventory powerUpAddedToInventory = new PowerUpAddedToInventory();
     public static PowerUpRemovedFromInventory powerUpRemovedFromInventory = new PowerUpRemovedFromInventory();
     public static InventoryCleared inventoryCleared = new InventoryCleared();
+    public static Start start = new Start();
+    public static RequestRestart requestRestart = new RequestRestart();
 }

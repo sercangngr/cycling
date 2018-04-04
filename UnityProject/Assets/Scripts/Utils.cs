@@ -46,6 +46,12 @@ public static class Utils
             yield return s.Substring(i, Math.Min(partLength, s.Length - i));
     }
 
+    public static string GetLast(this string s, char splitChar)
+    {
+        string[] all = s.Split(splitChar);
+        return all[all.Length - 1];
+    }
+
     // The Random object this method uses.
     private static System.Random Rand = null;
 

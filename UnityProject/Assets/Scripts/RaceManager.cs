@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class RaceManager : Singleton<RaceManager>
@@ -5,8 +6,10 @@ public class RaceManager : Singleton<RaceManager>
     private GameObject startPos;
 
     public float raceTime = 10;
+    private float countDown = 3;
 
-    public bool paused = false;
+    public bool paused = true;
+    private bool restarting = false;
 
     private Checkpoint[] checkpoints;
 
@@ -18,14 +21,15 @@ public class RaceManager : Singleton<RaceManager>
         EventManager.finishReached.AddListener(FinishReached);
         EventManager.checkpointPickedUp.AddListener(CheckpointReached);
         EventManager.pause.AddListener(Pause);
+        EventManager.requestRestart.AddListener(RestartRace);
     }
 
     private void Start()
     {
-        if(!Utils.SetObjectWithTag(out startPos, Constants.startPosTag))
+        if (!Utils.SetObjectWithTag(out startPos, Constants.startPosTag))
         {
             Player p;
-            if(!Utils.SetObject(out p))
+            if (!Utils.SetObject(out p))
             {
                 enabled = false;
                 return;
@@ -37,15 +41,15 @@ public class RaceManager : Singleton<RaceManager>
         }
 
         checkpoints = FindObjectsOfType<Checkpoint>();
-        if(checkpoints.Length == 0)
+        if (checkpoints.Length == 0)
             Debug.LogWarning("No checkpoints in current scene!");
 
-        RestartRace();
+        EventManager.pause.Invoke(true);
     }
 
     private void Update()
     {
-        if(!paused)
+        if (!paused)
         {
             if (raceTime > 0)
                 raceTime -= Time.deltaTime;
@@ -56,7 +60,7 @@ public class RaceManager : Singleton<RaceManager>
             }
         }
 
-        if(debug)
+        if (debug)
         {
             if (Input.GetKeyDown(KeyCode.R))
                 RestartRace();
@@ -78,16 +82,33 @@ public class RaceManager : Singleton<RaceManager>
 
     private void RestartRace()
     {
+        if (restarting) return;
+        restarting = true;
         Inventory.Clear();
 
         for (int i = 0; i < checkpoints.Length; i++)
             checkpoints[i].gameObject.SetActive(true);
 
         EventManager.restartRace.Invoke(startPos.transform);
+        StartCoroutine(CountDown());
     }
 
     private void Pause(bool state)
     {
         paused = state;
+    }
+
+    private IEnumerator CountDown()
+    {
+        Debug.Log("Counting down...");
+        while (countDown > 0)
+        {
+            countDown -= Time.deltaTime;
+            yield return null;
+        }
+
+        EventManager.start.Invoke();
+        restarting = false;
+        countDown = 3;
     }
 }
