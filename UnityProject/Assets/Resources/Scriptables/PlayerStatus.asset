@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676e84097113eaf46b61de32babfdf5f, type: 3}
+  m_Name: PlayerStatus
+  m_EditorClassIdentifier: 
+  energy: 100
+  currentEnergy: 93.12531
+  playerName: Player_1
+  score: 0
+  speed: 500
+  rainCoeff: 0.5
+  currentSpeed: 500
+  rotation: 1

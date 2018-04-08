@@ -9,98 +9,98 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1952619080588108}
+  m_RootGameObject: {fileID: 1917773735620906}
   m_IsPrefabParent: 1
---- !u!1 &1952619080588108
+--- !u!1 &1917773735620906
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4890565292066898}
-  - component: {fileID: 212986914781215228}
-  - component: {fileID: 135739576999196834}
-  - component: {fileID: 114620378864487376}
-  - component: {fileID: 114432047826590466}
-  - component: {fileID: 114612572676317140}
+  - component: {fileID: 4895245222552172}
+  - component: {fileID: 212265651482223778}
+  - component: {fileID: 135282508373455942}
+  - component: {fileID: 114703170696096656}
+  - component: {fileID: 114310698810094912}
+  - component: {fileID: 114854640584179160}
   m_Layer: 0
-  m_Name: Checkpoint_15
+  m_Name: EnergyPlus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4890565292066898
+--- !u!4 &4895245222552172
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1952619080588108}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24, y: 1.5, z: 43}
+  m_GameObject: {fileID: 1917773735620906}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 19, y: 1.5, z: 23}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114432047826590466
+--- !u!114 &114310698810094912
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1952619080588108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6faec70ffd856243a0667151a15d6a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114612572676317140
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1952619080588108}
+  m_GameObject: {fileID: 1917773735620906}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51862c8ed7d0c9b469bf9b3fa20a67e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints: []
---- !u!114 &114620378864487376
+--- !u!114 &114703170696096656
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1952619080588108}
+  m_GameObject: {fileID: 1917773735620906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83001735c01bb4d40bf9c9cb98a92b49, type: 3}
+  m_Script: {fileID: 11500000, guid: f6faec70ffd856243a0667151a15d6a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114854640584179160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917773735620906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33606c7eb76bc5f4e9e1e83befa19b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  itemName: Time Bonus
-  function: +15 sec
+  itemName: Water
+  function: Gives energy
   score: 5
-  bonusTime: 5
---- !u!135 &135739576999196834
+  energyValue: 5
+--- !u!135 &135282508373455942
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1952619080588108}
+  m_GameObject: {fileID: 1917773735620906}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.28
   m_Center: {x: 0, y: 0, z: 0}
---- !u!212 &212986914781215228
+--- !u!212 &212265651482223778
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1952619080588108}
+  m_GameObject: {fileID: 1917773735620906}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -129,7 +129,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc1ab02247e4f4742a31556980919556, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4214c72d0d16e8246a49fc8ca8a6df3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -7,6 +7,7 @@ public class PowerUp : MonoBehaviour
     public Sprite sprite;
     public string itemName = "PowerUp";
     public string function = "Powers the player up";
+    public float score = 5;
 
     protected virtual void Start()
     {

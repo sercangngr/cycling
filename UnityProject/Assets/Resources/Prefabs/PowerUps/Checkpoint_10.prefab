@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 135768968871572024}
   - component: {fileID: 114170016588910290}
   - component: {fileID: 114595148620418918}
+  - component: {fileID: 114151964947297258}
   m_Layer: 0
   m_Name: Checkpoint_10
   m_TagString: Untagged
@@ -43,6 +44,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114151964947297258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1257610459244986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51862c8ed7d0c9b469bf9b3fa20a67e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints: []
 --- !u!114 &114170016588910290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,8 +67,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83001735c01bb4d40bf9c9cb98a92b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
   itemName: Time Bonus
   function: +10 sec
+  score: 5
   bonusTime: 5
 --- !u!114 &114595148620418918
 MonoBehaviour:

@@ -35,6 +35,11 @@ public static class Utils
         return obj != null;
     }
 
+    public static bool HasComponent<T>(this Component c) where T : Component
+    {
+        return c.GetComponent<T>() != null;
+    }
+
     public static IEnumerable<string> SplitInParts(this string s, Int32 partLength)
     {
         if (s == null)
@@ -90,5 +95,11 @@ public static class Utils
 
         // Return the selected items.
         return results;
+    }
+
+    public static T PickRandom<T>(this T[] list)
+    {
+        if (Rand == null) Rand = new System.Random();
+        return list[Rand.Next(list.Length)];
     }
 }

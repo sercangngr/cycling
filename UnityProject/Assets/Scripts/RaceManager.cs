@@ -5,13 +5,12 @@ public class RaceManager : Singleton<RaceManager>
 {
     private GameObject startPos;
 
-    public float raceTime = 10;
-    private float countDown = 3;
+    [SerializeField]
+    private RaceStatus status;
 
-    public bool paused = true;
     private bool restarting = false;
 
-    private Checkpoint[] checkpoints;
+    private PowerUp[] powerUps;
 
     [Space(25), Header("Debug options"), SerializeField]
     private bool debug = false;
@@ -40,23 +39,27 @@ public class RaceManager : Singleton<RaceManager>
             Debug.Log("Created a StartPos object at Players's position");
         }
 
-        checkpoints = FindObjectsOfType<Checkpoint>();
-        if (checkpoints.Length == 0)
+        powerUps = FindObjectsOfType<PowerUp>();
+        if (powerUps.Length == 0)
             Debug.LogWarning("No checkpoints in current scene!");
 
         EventManager.pause.Invoke(true);
+        status.startPos = startPos.transform.position;
+        Finish f;
+        if (Utils.SetObject(out f))
+            status.finishPos = f.transform.position;
     }
 
     private void Update()
     {
-        if (!paused)
+        if (!status.paused)
         {
-            if (raceTime > 0)
-                raceTime -= Time.deltaTime;
+            if (status.currentRaceTime > 0)
+                status.currentRaceTime -= Time.deltaTime;
             else
             {
                 Debug.Log("Game Over!");
-                paused = true;
+                status.paused = true;
             }
         }
 
@@ -65,50 +68,53 @@ public class RaceManager : Singleton<RaceManager>
             if (Input.GetKeyDown(KeyCode.R))
                 RestartRace();
             if (Input.GetKeyDown(KeyCode.P))
-                EventManager.pause.Invoke(!paused);
+                EventManager.pause.Invoke(!status.paused);
         }
     }
 
     public void CheckpointReached(float time)
     {
-        raceTime += time;
+        status.currentRaceTime += time;
     }
 
     private void FinishReached()
     {
         Debug.Log("Race compleated!");
-        paused = true;
+        status.paused = true;
+        EventManager.pause.Invoke(true);
     }
 
     private void RestartRace()
     {
         if (restarting) return;
         restarting = true;
+        EventManager.pause.Invoke(true);
         Inventory.Clear();
 
-        for (int i = 0; i < checkpoints.Length; i++)
-            checkpoints[i].gameObject.SetActive(true);
+        for (int i = 0; i < powerUps.Length; i++)
+            powerUps[i].gameObject.SetActive(true);
 
         EventManager.restartRace.Invoke(startPos.transform);
+        status.Reset();
         StartCoroutine(CountDown());
     }
 
     private void Pause(bool state)
     {
-        paused = state;
+        status.paused = state;
     }
 
     private IEnumerator CountDown()
     {
         Debug.Log("Counting down...");
-        while (countDown > 0)
+        while (status.currentCountDown > 0)
         {
-            countDown -= Time.deltaTime;
+            status.currentCountDown -= Time.deltaTime;
             yield return null;
         }
 
         EventManager.start.Invoke();
+        EventManager.pause.Invoke(false);
         restarting = false;
-        countDown = 3;
     }
 }
