@@ -7,6 +7,7 @@ public enum Panel
     MainMenu,
     Customization,
     Score,
+    QR,
     None
 }
 
@@ -20,6 +21,7 @@ public class UIManager : MonoBehaviour
     private static CustomizationPanel customizationPanel;
     private static ScorePanel scorePanel;
     private static PausePanel pausePanel;
+    private static QRPanel qrPanel;
 
     void Start()
     {
@@ -28,8 +30,15 @@ public class UIManager : MonoBehaviour
         Utils.SetObject(out mainMenu);
         Utils.SetObject(out customizationPanel);
         Utils.SetObject(out scorePanel);
+        Utils.SetObject(out qrPanel);
 
         SetPanel(defaultPanel);
+    }
+
+    public static void GenerateQR(string twitterLing, string facebookLing)
+    {
+        qrPanel.GenerateQR(twitterLing, facebookLing);
+        SetPanel(Panel.QR);
     }
 
     public static void SetPanel(Panel type)
@@ -39,5 +48,6 @@ public class UIManager : MonoBehaviour
         mainMenu.gameObject.SetActive(type == Panel.MainMenu);
         customizationPanel.gameObject.SetActive(type == Panel.Customization);
         scorePanel.gameObject.SetActive(type == Panel.Score);
+        qrPanel.gameObject.SetActive(type == Panel.QR);
     }
 }

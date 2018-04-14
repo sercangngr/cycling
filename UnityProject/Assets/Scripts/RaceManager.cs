@@ -82,6 +82,7 @@ public class RaceManager : Singleton<RaceManager>
         Debug.Log("Race compleated!");
         status.paused = true;
         EventManager.pause.Invoke(true);
+        UIManager.GenerateQR(ShareSettings.GetTwitterLink(), ShareSettings.GetFacebookLink());
     }
 
     private void RestartRace()
