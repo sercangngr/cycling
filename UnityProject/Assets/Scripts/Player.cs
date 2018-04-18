@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
     private void Move()
     {
         Vector3 vel = transform.forward * status.currentSpeed
-                    * cont.speed * Time.deltaTime
+                    * cont.speed// * Time.deltaTime
                     * (status.inRainZone ? status.RainCoeff : 1)
                     * (status.inDarkZone ? status.DarkZoneCoeff : 1);
 
