@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Name: PlayerStatus
   m_EditorClassIdentifier: 
   energy: 100
-  currentEnergy: 31.039732
+  currentEnergy: 33.169594
   playerName: Player_1
-  score: 25
+  score: 87.44023
   speed: 15
   rainCoeff: 0.5
-  currentSpeed: 20
+  currentSpeed: 15
   rotation: 1
   inRainZone: 0
-  darkZoneCoeff: -1.16
+  darkZoneCoeff: 1
   inDarkZone: 0
-  playerPos: {x: -480.98038, y: 70.511604, z: 8.412715}
+  playerPos: {x: -496.78125, y: 70.511604, z: 10.021434}

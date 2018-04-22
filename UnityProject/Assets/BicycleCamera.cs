@@ -7,7 +7,7 @@ public class BicycleCamera : MonoBehaviour
 
     Vector3 hitPos;
     Vector3 forward;
-    Quaternion headTilt = Quaternion.Euler(Vector3.right * 15);
+    Quaternion headTilt = Quaternion.Euler(-Vector3.right * 15);
     public LayerMask mask;
 
 
@@ -19,7 +19,7 @@ public class BicycleCamera : MonoBehaviour
             hitPos = hit.point;
             Vector3 parentForward = transform.parent.forward;
             forward = parentForward - (Vector3.Dot(parentForward, hit.normal) * hit.normal) / hit.normal.sqrMagnitude;
-            forward = headTilt * forward;
+            //forward = headTilt * forward;
 
             transform.forward =  Vector3.Slerp(transform.forward,forward , 5f * Time.deltaTime);
         }

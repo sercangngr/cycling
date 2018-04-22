@@ -9,12 +9,13 @@ public class Cont : MonoBehaviour
     float speed = 0;
     float angle = 90;
     private Controller controller;
-    private string comPort = "COM3";
+    private string comPort = "COM5";
 
     SerialPort sArduino;
 
     private void Awake()
     {
+        Debug.Log("Ardunio Controller");
         sArduino = new SerialPort(comPort, 57600); // port define.
         controller = Controller.Instance;
     }
@@ -47,8 +48,12 @@ public class Cont : MonoBehaviour
         if (sArduino.IsOpen)
         {
             string[] values = sArduino.ReadLine().Split(',');   //recevied data looks like this: 150,20
+            Debug.Log(values);
             speed = (float.Parse(values[0]));
-            angle = (float.Parse(values[1]));                   //angle value changes between 0 to 180, when communication starts this value=90.
+            speed = speed / 90;
+            angle = (float.Parse(values[1]));
+
+            //angle value changes between 0 to 180, when communication starts this value=90.
                                                                 // if you want move forward this value must be 90.
         }
         else
