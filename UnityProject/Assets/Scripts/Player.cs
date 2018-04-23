@@ -183,4 +183,20 @@ public class Player : MonoBehaviour
 
         UpdateStatus();
     }
+
+	private void OnEnable()
+	{
+        GameState.EventGameOver.Register(OnGameOver);
+	}
+
+	private void OnDisable()
+	{
+        GameState.EventGameOver.Unregister(OnGameOver);
+	}
+
+    void OnGameOver()
+    {
+        rigid.velocity = Vector3.zero;
+        enabled = false;
+    }
 }

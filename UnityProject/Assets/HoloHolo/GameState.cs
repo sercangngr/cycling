@@ -16,34 +16,45 @@ public class GameState : UnitySingleton<GameState>
     public int score = 0;
     public float distanceLeft = 100;
 
+    Transform player;
+    Transform endPoint;
+
     public void StartGame()
     {
-        timeLeft = 120;
-        energyLeft = 100;
+        timeLeft = 300;
+        energyLeft = 300;
         score = 0;
+        player = GameObject.Find("Player").transform;
+        endPoint = GameObject.Find("Finish").transform;
+        distanceLeft = (player.position - endPoint.position).magnitude;
+        Debug.Log(distanceLeft);
+
+
+
 
         EventStartGame.Fire();
-
         EventManager.start.Invoke();
         EventManager.pause.Invoke(false);
-        StartCoroutine(Timer());
-        SoundManager.instance.InGameAudio.Play();
+        StartCoroutine(Track());
     }
 
-    IEnumerator Timer()
+    IEnumerator Track()
     {
-        while (true)
+        bool run = true;
+        while (run)
         {
             timeLeft -= Time.deltaTime;
-            if(timeLeft <= 0)
+            distanceLeft = (player.position - endPoint.position).magnitude;
+
+
+
+            if(timeLeft <= 0 || energyLeft <= 0 || distanceLeft < 0.5f)
             {
                 EventGameOver.Fire();
-                SoundManager.instance.InGameAudio.Stop();
+                run = false;
             }
             yield return null;
         }
-
-
        
     }
 
