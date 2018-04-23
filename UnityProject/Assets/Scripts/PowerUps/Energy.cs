@@ -6,6 +6,7 @@ public class Energy : PowerUp
     {
         EventManager.energyPickUp.Invoke(this);
         gameObject.SetActive(false);
+        GameState.Instance.energyLeft += (int)energyValue;
         base.PickUp();
     }
 }

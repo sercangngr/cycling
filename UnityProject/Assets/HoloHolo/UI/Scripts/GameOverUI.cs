@@ -79,6 +79,7 @@ public class GameOverUI : MonoBehaviour
     void OnCheckButtonPressed()
     {
         Debug.Log("Restart");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     void SetFacebook()

@@ -104,10 +104,17 @@ public class Player : MonoBehaviour
     private void UpdateStatus()
     {
         if (cont.speed != 0)
+        {
             status.currentEnergy -= Time.deltaTime;
+            GameState.Instance.energyLeft -= Time.deltaTime;
+        }
 
         if (status.inRainZone)
+        {
             status.currentEnergy -= Time.deltaTime;
+            GameState.Instance.energyLeft -= Time.deltaTime;
+        }
+            
 
         status.playerPos = transform.position;
     }

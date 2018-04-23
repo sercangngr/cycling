@@ -23,6 +23,26 @@ public class GameState : UnitySingleton<GameState>
         score = 0;
 
         EventStartGame.Fire();
+
+        EventManager.start.Invoke();
+        EventManager.pause.Invoke(false);
+        StartCoroutine(Timer());
+    }
+
+    IEnumerator Timer()
+    {
+        while (true)
+        {
+            timeLeft -= Time.deltaTime;
+            if(timeLeft <= 0)
+            {
+                EventGameOver.Fire();
+            }
+            yield return null;
+        }
+
+
+       
     }
 
 
