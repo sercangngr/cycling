@@ -17,6 +17,7 @@ public class PowerUp : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         PickUp();
+        this.gameObject.SetActive(false);
     }
 
     public virtual void PickUp()
