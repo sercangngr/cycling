@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameOverUI : MonoBehaviour 
 {
     public Image qrCode;
+    public Text headerText;
     public Text text;
 
     Sprite facebookQr;
@@ -20,23 +21,44 @@ public class GameOverUI : MonoBehaviour
 	{
         
         string twitterLink = GetTwitterLink();
+        Debug.Log(twitterLink);
         string facebookLink = GetFacebookLink();
+        Debug.Log(facebookLink);
 
         twitterQr = Sprite.Create(QRManager.GenerateQR(twitterLink), new Rect(Vector2.zero, Vector2.one * 256), Vector2.zero);
         facebookQr = Sprite.Create(QRManager.GenerateQR(facebookLink), new Rect(Vector2.zero, Vector2.one * 256), Vector2.zero);
 
         SetFacebook();
+
+        if(GameState.Instance.timeLeft <= 0)
+        {
+            headerText.text = "ÜZGÜNÜM ZAMANIN DOLDU SKORUNU PAYLAŞ";
+        }else if (GameState.Instance.energyLeft <= 0)
+        {
+            headerText.text = "ÜZGÜNÜM ENERJİN BİTTİ SKORUNU PAYLAŞ";
+        }else
+        {
+            headerText.text = "TEBRİKLER İYİ BİR İŞ ÇIKARTTIN SKORUNU PAYLAŞ";
+        }
 	}
 
     string GetFacebookLink()
     {
-        return "https://twitter.com/intent/tweet?via=";// + via + "&text=" + msg;
+        string website = "https://www.decathlon.com.tr/";
+        string msg = "DecathRace%20skorum%20" + GameState.Instance.score;
+        return "https://www.facebook.com/sharer/sharer.php?u=" + website + "&quote=" + msg;
     }
 
     string GetTwitterLink()
     {
-        return "https://www.facebook.com/sharer/sharer.php?u=";// + website + "&quote=" + msg;
+        
+        string msg = "DecathRace%20skorum%20" + GameState.Instance.score;
+        string via = "Decathlon";
+
+        return "https://twitter.com/intent/tweet?via=" + via + "&text=" + msg;
     }
+
+
 
 	private void OnEnable()
 	{

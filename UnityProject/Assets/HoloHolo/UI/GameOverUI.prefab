@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qrCode: {fileID: 114801185449313820}
+  headerText: {fileID: 114200682930038852}
   text: {fileID: 114123008085536914}
 --- !u!114 &114009367591170378
 MonoBehaviour:
