@@ -14,6 +14,7 @@ public class GameUI : MonoBehaviour
 
     public Image timeBar;
     public Image energyBar;
+    public Image distanceBar;
 
     public Text timeText;
     public Text energyText;
@@ -65,14 +66,17 @@ public class GameUI : MonoBehaviour
     {
         float initTime = GameState.Instance.timeLeft;
         float initEnergy = GameState.Instance.energyLeft;
+        float initDistance = GameState.Instance.distanceLeft;
 
         while(enabled)
         {
             float tTime = GameState.Instance.timeLeft / initTime;
             float tEnergy = GameState.Instance.energyLeft / initEnergy;
+            float tDistance = GameState.Instance.distanceLeft / initDistance;
 
             timeBar.fillAmount = tTime;
             energyBar.fillAmount = tEnergy;
+            distanceBar.fillAmount = 1 - tDistance;
 
             timeText.text = "Kalan Süre " + ((int)GameState.Instance.timeLeft);
             energyText.text = "Kalan Enerji" + ((int)GameState.Instance.energyLeft);

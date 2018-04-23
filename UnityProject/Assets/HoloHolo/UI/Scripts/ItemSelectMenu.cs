@@ -15,7 +15,6 @@ public class ItemSelectMenu : MonoBehaviour
         SetSelected(0);
 	}
 
-
     void SetSelected(int index)
     {
         itemIndex = Mathf.Clamp(index, 0, items.Length - 1);
@@ -25,14 +24,14 @@ public class ItemSelectMenu : MonoBehaviour
 
 	private void OnEnable()
 	{
-        UIMainMenu.EventButtonLeft.Register(OnButtonLeftClicked);
-        UIMainMenu.EventButtonRight.Register(OnButtonRightClicked);
+        Ardunio.EventButtonLeft.Register(OnButtonLeftClicked);
+        Ardunio.EventButtonRight.Register(OnButtonRightClicked);
 	}
 
 	private void OnDisable()
 	{
-        UIMainMenu.EventButtonLeft.Unregister(OnButtonLeftClicked);
-        UIMainMenu.EventButtonRight.Unregister(OnButtonRightClicked);
+        Ardunio.EventButtonLeft.Unregister(OnButtonLeftClicked);
+        Ardunio.EventButtonRight.Unregister(OnButtonRightClicked);
 	}
 
 	void OnButtonLeftClicked()

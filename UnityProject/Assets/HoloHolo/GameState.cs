@@ -14,6 +14,7 @@ public class GameState : UnitySingleton<GameState>
     public float timeLeft = 120;
     public float energyLeft = 100;
     public int score = 0;
+    public float distanceLeft = 100;
 
     public void StartGame()
     {

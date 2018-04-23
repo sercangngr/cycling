@@ -5,16 +5,7 @@ using Kabuk;
 
 public class UIMainMenu : MonoBehaviour 
 {
-    public class EventNextPage : CustomEvent<EventNextPage>{}
-    public class EventPreviousPage : CustomEvent<EventPreviousPage>{}
-
-
-    public class EventButtonLeft : CustomEvent<EventButtonLeft>{}
-    public class EventButtonRight : CustomEvent<EventButtonRight>{}
-    public class EventButtonCheck : CustomEvent<EventButtonCheck> { }
-    public class EventButtonCross : CustomEvent<EventButtonCross> { }
-
-
+ 
     public GameObject[] pagePrefabs;
     GameObject[] pages;
     public GameObject currentPage;
@@ -51,35 +42,17 @@ public class UIMainMenu : MonoBehaviour
         }
     }
 
-	private void Update()
-	{
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            EventButtonLeft.Fire();
-        }else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            EventButtonRight.Fire();
-        }else if (Input.GetKeyDown(KeyCode.Return))
-        {
-            EventButtonCheck.Fire();
-
-        }else if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            EventButtonCross.Fire();
-        }
-	}
-
 
     private void OnEnable()
     {
-        EventButtonCross.Register(OnButtonCrossClicked);
-        EventButtonCheck.Register(OnButtonCheckClicked);
+        Ardunio.EventButtonCross.Register(OnButtonCrossClicked);
+        Ardunio.EventButtonCheck.Register(OnButtonCheckClicked);
     }
 
     private void OnDisable()
     {
-        EventButtonCross.Unregister(OnButtonCrossClicked);
-        EventButtonCheck.Unregister(OnButtonCheckClicked);
+        Ardunio.EventButtonCross.Unregister(OnButtonCrossClicked);
+        Ardunio.EventButtonCheck.Unregister(OnButtonCheckClicked);
     }
 
 
