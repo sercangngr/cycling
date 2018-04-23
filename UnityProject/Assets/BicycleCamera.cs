@@ -7,7 +7,7 @@ public class BicycleCamera : MonoBehaviour
 
     Vector3 hitPos;
     Vector3 forward;
-    Quaternion headTilt = Quaternion.Euler(-Vector3.right * 15);
+    //Quaternion headTilt = Quaternion.Euler(-Vector3.right * 15);
     public LayerMask mask;
 
 

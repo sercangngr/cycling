@@ -79,4 +79,9 @@ public static class EventManager
     public static EnterDark enterDark = new EnterDark();
     public static ExitDark exitDark = new ExitDark();
     public static EnergyPickUp energyPickUp = new EnergyPickUp();
+
+
+
+
+    // HOLO Events
 }

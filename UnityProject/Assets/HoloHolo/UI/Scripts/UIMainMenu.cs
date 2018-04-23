@@ -5,7 +5,6 @@ using Kabuk;
 
 public class UIMainMenu : MonoBehaviour 
 {
-    public class EventStartGame  : CustomEvent<EventStartGame>{}
     public class EventNextPage : CustomEvent<EventNextPage>{}
     public class EventPreviousPage : CustomEvent<EventPreviousPage>{}
 
@@ -21,6 +20,8 @@ public class UIMainMenu : MonoBehaviour
     public GameObject currentPage;
     int pageIndex = -1;
 
+    public GameObject gameUIPrefab;
+
 
 	private void Awake()
 	{
@@ -31,8 +32,9 @@ public class UIMainMenu : MonoBehaviour
     {
         if(pageNo == pagePrefabs.Length)
         {
-            EventStartGame.Fire();
             Destroy(gameObject);
+            Instantiate(gameUIPrefab);
+            GameState.Instance.StartGame();
             return;
         }
 
