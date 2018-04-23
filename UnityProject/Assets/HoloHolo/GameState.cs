@@ -25,11 +25,8 @@ public class GameState : UnitySingleton<GameState>
         energyLeft = 300;
         score = 0;
         player = GameObject.Find("Player").transform;
-        endPoint = GameObject.Find("Finish").transform;
-        distanceLeft = (player.position - endPoint.position).magnitude;
+        distanceLeft = Marks.Instance.GetDistance(player.position);
         Debug.Log(distanceLeft);
-
-
 
 
         EventStartGame.Fire();
@@ -44,8 +41,7 @@ public class GameState : UnitySingleton<GameState>
         while (run)
         {
             timeLeft -= Time.deltaTime;
-            distanceLeft = (player.position - endPoint.position).magnitude;
-
+            distanceLeft = Marks.Instance.GetDistance(player.position);
 
 
             if(timeLeft <= 0 || energyLeft <= 0 || distanceLeft < 0.5f)
