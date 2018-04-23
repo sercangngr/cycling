@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27deab5f01d8484eb7391c605c17231, type: 3}
   m_Name: Helmet1
   m_EditorClassIdentifier: 
-  text: Kask 1
+  text: "500 DA\u011E B\u0130S\u0130KLET\u0130 KASKI - S\u0130YAH B'TWIN"
   sprite: {fileID: 21300000, guid: ec0ba694593a0b74d91d60566f2ae7a5, type: 3}

@@ -11,6 +11,8 @@ public class GameUI : MonoBehaviour
     public RectTransform notificationContainer;
     List<GameObject> notifications = new List<GameObject>();
 
+    public GameObject gameOverPrefab;
+
 
     public Image timeBar;
     public Image energyBar;
@@ -68,7 +70,7 @@ public class GameUI : MonoBehaviour
         float initEnergy = GameState.Instance.energyLeft;
         float initDistance = GameState.Instance.distanceLeft;
 
-        while(enabled)
+        while(this != null && enabled)
         {
             float tTime = GameState.Instance.timeLeft / initTime;
             float tEnergy = GameState.Instance.energyLeft / initEnergy;
@@ -90,5 +92,6 @@ public class GameUI : MonoBehaviour
     void OnGameOver()
     {
         Destroy(gameObject);
+        Instantiate(gameOverPrefab);
     }
 }

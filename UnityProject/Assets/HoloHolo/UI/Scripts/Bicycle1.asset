@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27deab5f01d8484eb7391c605c17231, type: 3}
   m_Name: Bicycle1
   m_EditorClassIdentifier: 
-  text: Bisiklet 1
+  text: RockRider 340
   sprite: {fileID: 21300000, guid: 31a6ad12b8aae1e4f8df62d5316c1071, type: 3}

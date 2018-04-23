@@ -567,6 +567,8 @@ MonoBehaviour:
   notificationPrefab: {fileID: 1262191843560892, guid: 2b04548d564644a8a88a5277bd6c4885,
     type: 2}
   notificationContainer: {fileID: 224383428684169174}
+  gameOverPrefab: {fileID: 1058023434924410, guid: e7950ce748e3340cd93e9742fe217546,
+    type: 2}
   timeBar: {fileID: 114902604193238470}
   energyBar: {fileID: 114332740432757196}
   distanceBar: {fileID: 114134006263798688}

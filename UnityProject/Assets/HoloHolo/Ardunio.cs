@@ -16,7 +16,7 @@ public class Ardunio : UnitySingleton<Ardunio>
 
     
     private string comPort = "COM5";
-    SerialPort ardunioPort;
+    SerialPort bicyclePort;
 
     float speed = 0;
     float angle = 90;
@@ -25,13 +25,13 @@ public class Ardunio : UnitySingleton<Ardunio>
     {
         base.Awake();
         Debug.Log("Ardunio Controller");
-        ardunioPort = new SerialPort(comPort, 57600); // port define.
+        bicyclePort = new SerialPort(comPort, 57600); // port define.
 
         try
         {
             Debug.Log("serial begin.");
-            ardunioPort.Open();
-            ardunioPort.ReadTimeout = 20; //set this variable with arduino 1 loop time.
+            bicyclePort.Open();
+            bicyclePort.ReadTimeout = 20; //set this variable with arduino 1 loop time.
         }
         catch (Exception e)
         {
@@ -45,7 +45,7 @@ public class Ardunio : UnitySingleton<Ardunio>
 
 	void Update()
     {
-        if(ardunioPort.IsOpen)
+        if(bicyclePort.IsOpen)
         {
 			ReadValues();
         }
@@ -76,7 +76,7 @@ public class Ardunio : UnitySingleton<Ardunio>
     public void ReadValues()
     {
 
-        string[] values = ardunioPort.ReadLine().Split(',');   //recevied data looks like this: 150,20
+        string[] values = bicyclePort.ReadLine().Split(',');   //recevied data looks like this: 150,20
         float rawSpeed = -1;
         float rawAngle = -1;
         float.TryParse(values[0], out rawSpeed);
@@ -106,7 +106,7 @@ public class Ardunio : UnitySingleton<Ardunio>
 
     private void OnDisable()
     {
-        ardunioPort.Close();
+        bicyclePort.Close();
     }
 
 
