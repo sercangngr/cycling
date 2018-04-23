@@ -28,6 +28,8 @@ public class GameOverUI : MonoBehaviour
         twitterQr = Sprite.Create(QRManager.GenerateQR(twitterLink), new Rect(Vector2.zero, Vector2.one * 256), Vector2.zero);
         facebookQr = Sprite.Create(QRManager.GenerateQR(facebookLink), new Rect(Vector2.zero, Vector2.one * 256), Vector2.zero);
 
+        SoundManager.instance.InGameAudio.Stop();
+
         SetFacebook();
 
         if(GameState.Instance.timeLeft <= 0)

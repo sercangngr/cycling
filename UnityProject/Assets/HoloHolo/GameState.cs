@@ -25,14 +25,20 @@ public class GameState : UnitySingleton<GameState>
         energyLeft = 300;
         score = 0;
         player = GameObject.Find("Player").transform;
-        distanceLeft = Marks.Instance.GetDistance(player.position);
+        endPoint = GameObject.Find("Finish").transform;
+        distanceLeft = (player.position - endPoint.position).magnitude;
         Debug.Log(distanceLeft);
+
+
 
 
         EventStartGame.Fire();
         EventManager.start.Invoke();
         EventManager.pause.Invoke(false);
         StartCoroutine(Track());
+
+        SoundManager.instance.InGameAudio.Play();
+
     }
 
     IEnumerator Track()
@@ -41,7 +47,8 @@ public class GameState : UnitySingleton<GameState>
         while (run)
         {
             timeLeft -= Time.deltaTime;
-            distanceLeft = Marks.Instance.GetDistance(player.position);
+            distanceLeft = (player.position - endPoint.position).magnitude;
+
 
 
             if(timeLeft <= 0 || energyLeft <= 0 || distanceLeft < 0.5f)
