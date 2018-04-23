@@ -79,6 +79,10 @@ public class Player : MonoBehaviour
     private void GameOver()
     {
         canControl = false;
+        if(SoundManager.instance.InGameAudio.isPlaying)
+        {
+            SoundManager.instance.InGameAudio.Stop();
+        }
     }
 
     private void RestartRace(Transform startPos)
