@@ -45,6 +45,9 @@ public class Player : MonoBehaviour
                     * (status.inRainZone ? status.RainCoeff : 1)
                     * (status.inDarkZone ? status.DarkZoneCoeff : 1);
 
+        Debug.Log(vel);
+        
+
         vel.y = rigid.velocity.y;
         rigid.velocity = vel;
     }
