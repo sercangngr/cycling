@@ -27,6 +27,7 @@ public class GameState : UnitySingleton<GameState>
         EventManager.start.Invoke();
         EventManager.pause.Invoke(false);
         StartCoroutine(Timer());
+        SoundManager.instance.InGameAudio.Play();
     }
 
     IEnumerator Timer()
@@ -37,6 +38,7 @@ public class GameState : UnitySingleton<GameState>
             if(timeLeft <= 0)
             {
                 EventGameOver.Fire();
+                SoundManager.instance.InGameAudio.Stop();
             }
             yield return null;
         }
