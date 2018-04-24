@@ -79,7 +79,7 @@ public class GameUI : MonoBehaviour
             timeBar.fillAmount = tTime;
             energyBar.fillAmount = tEnergy;
 
-            Debug.Log("Distance" + tDistance);
+           // Debug.Log("Distance" + tDistance);
             distanceBar.fillAmount = 1 - tDistance;
 
             timeText.text = "Kalan Süre " + ((int)GameState.Instance.timeLeft);

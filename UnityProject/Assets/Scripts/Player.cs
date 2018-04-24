@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.PostProcessing;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour
     private PlayerStatus status;
     [SerializeField]
     private GameObject torchlight;
+
+    public PostProcessingProfile profile;
 
     private Vector3 currentVel = Vector3.zero;
 
@@ -45,7 +48,6 @@ public class Player : MonoBehaviour
                     * (status.inRainZone ? status.RainCoeff : 1)
                     * (status.inDarkZone ? status.DarkZoneCoeff : 1);
 
-        Debug.Log(vel);
         
 
         vel.y = rigid.velocity.y;
@@ -54,6 +56,7 @@ public class Player : MonoBehaviour
 
     private void Rotate()
     {
+
         Vector3 rot = rigid.rotation.eulerAngles + new Vector3(0, cont.angle - 90, 0) * Time.deltaTime * status.rotation;
         rigid.MoveRotation(Quaternion.Euler(rot));
     }
@@ -140,12 +143,22 @@ public class Player : MonoBehaviour
     {
         if (!Inventory.PowerUps.Find(pu => pu.GetType() == typeof(RainCoat)))
             status.inRainZone = true;
+        VignetteModel.Settings vSettings =  profile.vignette.settings;
+        vSettings.intensity = 0.6f;
+
+        profile.vignette.settings = vSettings;
+        
+        
     }
 
     private void ExitRain()
     {
         status.ResetSpeed();
         status.inRainZone = false;
+        VignetteModel.Settings vSettings = profile.vignette.settings;
+        vSettings.intensity = 0.4f;
+
+        profile.vignette.settings = vSettings;
     }
 
     private void HitHazard(Hazard boulder)

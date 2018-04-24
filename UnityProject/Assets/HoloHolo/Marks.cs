@@ -48,7 +48,8 @@ public class Marks : UnitySingleton<Marks>
         for (int i = 0; i < marks.Length - 1; i++)
         {
             Gizmos.DrawLine(marks[i].position, marks[i + 1].position);
-            Gizmos.DrawSphere(closestProj, 5);
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(closestProj, 10);
         }
 	}
 

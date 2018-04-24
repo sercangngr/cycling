@@ -25,8 +25,25 @@ public class Controller : Singleton<Controller>
 
     private void Update()
     {
-        if (useKeyboard)
+        //if (Ardunio.Instance.serialPortController.IsInitialized && !Ardunio.Instance.serialPortController.ConnectionClosed)
+            if(Ardunio.Instance.bicyclePort.IsOpen)
+        {
+            speed = Ardunio.Instance.speed;
+            speed = ReMap(speed, 0, 500);
+            angle = Ardunio.Instance.angle - 30;
+        }
+        else
+        {
             GetInput();
+        }
+            
     }
     #endregion
+
+    float ReMap(float value, float min, float max)
+    {
+        float t = (value - min) / (max - min);
+        t = Mathf.Clamp01(t);
+        return t;
+    }
 }

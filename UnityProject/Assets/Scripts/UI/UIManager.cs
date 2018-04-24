@@ -37,8 +37,8 @@ public class UIManager : MonoBehaviour
 
     public static void GenerateQR(string twitterLing, string facebookLing)
     {
-        qrPanel.GenerateQR(twitterLing, facebookLing);
-        SetPanel(Panel.QR);
+        //qrPanel.GenerateQR(twitterLing, facebookLing);
+        //SetPanel(Panel.QR);
     }
 
     public static void SetPanel(Panel type)

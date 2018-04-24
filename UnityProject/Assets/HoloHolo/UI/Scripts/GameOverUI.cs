@@ -34,27 +34,27 @@ public class GameOverUI : MonoBehaviour
 
         if(GameState.Instance.timeLeft <= 0)
         {
-            headerText.text = "ÜZGÜNÜM ZAMANIN DOLDU SKORUNU PAYLAŞ";
+            headerText.text = "ÜZGÜNÜM ZAMANIN DOLDU SKORUN " + GameState.Instance.GetScore() + " PAYLAŞ";
         }else if (GameState.Instance.energyLeft <= 0)
         {
-            headerText.text = "ÜZGÜNÜM ENERJİN BİTTİ SKORUNU PAYLAŞ";
+            headerText.text = "ÜZGÜNÜM ENERJİN BİTTİ SKORUN " + GameState.Instance.GetScore() + "  PAYLAŞ";
         }else
         {
-            headerText.text = "TEBRİKLER İYİ BİR İŞ ÇIKARTTIN SKORUNU PAYLAŞ";
+            headerText.text = "TEBRİKLER İYİ BİR İŞ ÇIKARTTIN SKORU " + GameState.Instance.GetScore() + "  PAYLAŞ";
         }
 	}
 
     string GetFacebookLink()
     {
         string website = "https://www.decathlon.com.tr/";
-        string msg = "DecathRace%20skorum%20" + GameState.Instance.score;
+        string msg = "DecathRace%20skorum%20" + GameState.Instance.GetScore();
         return "https://www.facebook.com/sharer/sharer.php?u=" + website + "&quote=" + msg;
     }
 
     string GetTwitterLink()
     {
         
-        string msg = "DecathRace%20skorum%20" + GameState.Instance.score;
+        string msg = "DecathRace%20skorum%20" + GameState.Instance.GetScore();
         string via = "Decathlon";
 
         return "https://twitter.com/intent/tweet?via=" + via + "&text=" + msg;
