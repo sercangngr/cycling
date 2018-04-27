@@ -81,6 +81,32 @@ public static class EventManager
     public static EnergyPickUp energyPickUp = new EnergyPickUp();
 
 
+	public static void Restart()
+	{
+
+		checkpointPickedUp = new CheckpointPicked();
+		powerUpPickedUp = new PowerUpPickedUp();
+		finishReached = new FinishReached();
+		restartRace = new RestartRace();
+		gameOver = new GameOver();
+		pause = new Pause();
+		powerUpAddedToInventory = new PowerUpAddedToInventory();
+		powerUpRemovedFromInventory = new PowerUpRemovedFromInventory();
+		inventoryCleared = new InventoryCleared();
+		start = new Start();
+		requestRestart = new RequestRestart();
+		enterRain = new EnterRain();
+		exitRain = new ExitRain();
+		enterBoulder = new EnterBoulder();
+		exitBoulder = new ExitBoulder();
+		hitHazard = new HitBoulder();
+		enterDark = new EnterDark();
+		exitDark = new ExitDark();
+		energyPickUp = new EnergyPickUp();
+		
+	}
+
+
 
 
     // HOLO Events

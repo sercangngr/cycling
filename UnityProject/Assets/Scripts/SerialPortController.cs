@@ -52,6 +52,7 @@ public class SerialPortController
             listenerThread = new Thread(PortListenerBinary_T);
         else
             listenerThread = new Thread(PortListenerText_T);
+        listenerThread.Priority = System.Threading.ThreadPriority.Highest;
         listenerThread.Start();
     }
 

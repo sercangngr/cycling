@@ -41,14 +41,20 @@ public class Player : MonoBehaviour
         torchlight.SetActive(false);
     }
 
+	const float MaxSpeed = 15;
     private void Move()
     {
-        Vector3 vel = transform.forward * status.currentSpeed
-                    * cont.speed// * Time.deltaTime
-                    * (status.inRainZone ? status.RainCoeff : 1)
-                    * (status.inDarkZone ? status.DarkZoneCoeff : 1);
 
-        
+		float speed = MaxSpeed
+			* Ardunio.Instance.speed// * Time.deltaTime
+			* (status.inRainZone ? status.RainCoeff : 1)
+			* (status.inDarkZone ? status.DarkZoneCoeff : 1);
+
+		Debug.Log (speed);
+
+		Vector3 vel = transform.forward.normalized * speed;
+
+		Debug.Log ("Vel" + vel);
 
         vel.y = rigid.velocity.y;
         rigid.velocity = vel;
@@ -143,22 +149,15 @@ public class Player : MonoBehaviour
     {
         if (!Inventory.PowerUps.Find(pu => pu.GetType() == typeof(RainCoat)))
             status.inRainZone = true;
-        VignetteModel.Settings vSettings =  profile.vignette.settings;
-        vSettings.intensity = 0.6f;
 
-        profile.vignette.settings = vSettings;
-        
-        
+     
     }
 
     private void ExitRain()
     {
         status.ResetSpeed();
         status.inRainZone = false;
-        VignetteModel.Settings vSettings = profile.vignette.settings;
-        vSettings.intensity = 0.4f;
 
-        profile.vignette.settings = vSettings;
     }
 
     private void HitHazard(Hazard boulder)
@@ -167,6 +166,8 @@ public class Player : MonoBehaviour
             status.score -= boulder.scoreDamage;
     }
 
+	public bool hasTorch = false;
+
     private void EnterDark()
     {
         if (!torchlight)
@@ -174,7 +175,7 @@ public class Player : MonoBehaviour
             Debug.LogError("No torchlight object is set on player!");
             return;
         }
-        if (Inventory.PowerUps.Find(obj => obj.GetType() == typeof(Torchlight)))
+		if (hasTorch)
             torchlight.SetActive(true);
         else
             status.inDarkZone = true;
@@ -208,6 +209,8 @@ public class Player : MonoBehaviour
 	private void OnDisable()
 	{
         GameState.EventGameOver.Unregister(OnGameOver);
+		status.inDarkZone = false;
+		status.inRainZone = false;
 	}
 
     void OnGameOver()

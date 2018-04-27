@@ -52,24 +52,7 @@ public class RaceManager : Singleton<RaceManager>
 
     private void Update()
     {
-        if (!status.paused)
-        {
-            if (status.currentRaceTime > 0)
-                status.currentRaceTime -= Time.deltaTime;
-            else
-            {
-                Debug.Log("Game Over!");
-                status.paused = true;
-            }
-        }
-
-        if (debug)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-                RestartRace();
-            if (Input.GetKeyDown(KeyCode.P))
-                EventManager.pause.Invoke(!status.paused);
-        }
+     
     }
 
     public void CheckpointReached(float time)

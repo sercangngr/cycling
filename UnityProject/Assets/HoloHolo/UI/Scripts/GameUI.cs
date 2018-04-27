@@ -83,7 +83,7 @@ public class GameUI : MonoBehaviour
             distanceBar.fillAmount = 1 - tDistance;
 
             timeText.text = "Kalan Süre " + ((int)GameState.Instance.timeLeft);
-            energyText.text = "Kalan Enerji" + ((int)GameState.Instance.energyLeft);
+            energyText.text = "Kalan Enerji " + ((int)GameState.Instance.energyLeft);
             scoreText.text = "Skor\n" + GameState.Instance.score;
 
             yield return null;
