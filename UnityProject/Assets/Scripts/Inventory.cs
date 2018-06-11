@@ -43,7 +43,7 @@ public static class Inventory
     {
         if (!PowerUps.Contains(pu))
         {
-            Debug.LogError(pu.itemName + " is not in the inventory!");
+            //Debug.LogError(pu.itemName + " is not in the inventory!");
             return;
         }
         PowerUps.Remove(pu);

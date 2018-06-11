@@ -26,11 +26,10 @@ public class Controller : Singleton<Controller>
     private void Update()
     {
         //if (Ardunio.Instance.serialPortController.IsInitialized && !Ardunio.Instance.serialPortController.ConnectionClosed)
-            if(Ardunio.Instance.bicyclePort.IsOpen)
+        if(Ardunio.Instance.Ready())
         {
             speed = Ardunio.Instance.speed;
-            speed = ReMap(speed, 0, 500);
-            angle = Ardunio.Instance.angle - 30;
+            angle = Ardunio.Instance.angle;
         }
         else
         {
@@ -40,10 +39,4 @@ public class Controller : Singleton<Controller>
     }
     #endregion
 
-    float ReMap(float value, float min, float max)
-    {
-        float t = (value - min) / (max - min);
-        t = Mathf.Clamp01(t);
-        return t;
-    }
 }

@@ -21,7 +21,7 @@ public class GameState : UnitySingleton<GameState>
 
     public void StartGame()
     {
-        timeLeft = 300;
+        timeLeft = 250;
         energyLeft = 300;
         score = 0;
         player = GameObject.Find("Player").transform;

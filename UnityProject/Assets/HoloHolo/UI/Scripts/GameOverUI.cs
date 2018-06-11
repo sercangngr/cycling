@@ -103,6 +103,7 @@ public class GameOverUI : MonoBehaviour
     void OnCheckButtonPressed()
     {
         Debug.Log("Restart");
+		EventManager.Restart ();
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 

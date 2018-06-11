@@ -12,5 +12,8 @@ public class LookAtCam : MonoBehaviour
     void Update()
     {
         transform.forward = transform.position - cam.position;
+		Vector3 rot = transform.rotation.eulerAngles;
+		rot.x = 0;
+		transform.rotation = Quaternion.Euler (rot);
     }
 }

@@ -15,187 +15,184 @@ public class Ardunio : UnitySingleton<Ardunio>
     public class EventButtonCheck : CustomEvent<EventButtonCheck> { }
     public class EventButtonCross : CustomEvent<EventButtonCross> { }
 
-    public Text dataText;
-    
-   // private string comPort = "COM10";
-    public SerialPort bicyclePort;
+    SerialPort port;
+    bool gameStarted = false;
 
-    public float speed = 0;
+	KeyCode[] speedInputs = {  KeyCode.Q, KeyCode.W, KeyCode.E, KeyCode.R, KeyCode.T, KeyCode.Y, KeyCode.U, KeyCode.I };
+
+
+	KeyCode[] rotationInputs = {
+		KeyCode.Alpha1,
+		KeyCode.Alpha2,
+		KeyCode.Alpha3,
+		KeyCode.Alpha4,
+		KeyCode.Alpha5,
+		KeyCode.Alpha6,
+		KeyCode.Alpha7,
+		KeyCode.Alpha8,
+		KeyCode.Alpha9
+	};
+
+   
+
+    [Header("Angle")]
+    public float nextAngle = 90;
     public float angle = 90;
+    public float interTimerAngle = 0;
 
-    //public SerialPortController serialPortController;
-
-    protected override void Awake()
+    public float[] angleMap =
     {
-        base.Awake();
-        Debug.Log("Ardunio Controller");
-        bicyclePort = new SerialPort("COM10", 57600); // port define.
+        10,30,50,70,90,110,130,150,170
 
-        try
-        {
-            Debug.Log("serial begin.");
-            bicyclePort.Open();
-            bicyclePort.ReadTimeout = 50; //set this variable with arduino 1 loop time.
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("Arduino connection is not set due to following error:");
-            Debug.LogError(e);
-            //enabled = false;
-        }
+    };
 
-        //serialPortController = new SerialPortController(comPort, 57600);
-        //Debug.Log("SerialPOrt Launch");
-        //serialPortController.Launch();
-    }
+    [Header("Speed")]
+    public float speed = 0;
+    public float nextSpeed = 0;
+    public float interTimerSpeed = 0;
+    public float drag = 0.05f;
+
+    public float[] speedMap =
+    {
+        0.1f,0.2f,0.3f,0.4f,0.5f,0.6f,0.7f,0.8f,0.9f
+
+    };
 
 
+	IEnumerator Start() 
+	{
+		Cursor.visible = false;
+		port = new SerialPort("COM6", 57600);
+		port.WriteTimeout = 100;
+
+		try
+		{
+			port.Open();
+		}
+		catch (Exception e)
+		{
+			Debug.Log("Error at port oppening" + e);
+		}
+
+		yield return new WaitForSeconds(1f);
+		port.WriteLine("1");
+	}
 
     void Update()
     {
-        //     if(serialPortController.IsInitialized && !serialPortController.ConnectionClosed)
-        //     {
-        //ReadValues();
-        //     }
-        //     else
-        //     {
-        //         Debug.Log("failed to read values");
-        //     }
-        if (bicyclePort.IsOpen)
-        {
-            ReadValues();
-        }
         FakeInput();
+        ReadValues();
     }
 
-    bool isStart = false;
+
+    const float firstNew = 90;
+    float correctionValue = 0;
+    float lastValue = 90;
+    bool recalibrate = false;
+
 
     void FakeInput()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             EventButtonLeft.Fire();
-            Debug.Log("Left");
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             EventButtonRight.Fire();
-            Debug.Log("Right");
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             EventButtonCheck.Fire();
-
         }
         else if (Input.GetKeyDown(KeyCode.Backspace))
         {
             EventButtonCross.Fire();
-            if (isStart)
+            if (gameStarted)
             {
+				EventManager.Restart ();
                 UnityEngine.SceneManagement.SceneManager.LoadScene(0);
             }
         }
     }
-    int counter = 0;
+
+
     public void ReadValues()
     {
 
-        //string data = "";
-        //Debug.Log("reading values");
-        //while (serialPortController.GetReceivedString(out data))
-        //{
+		float newSpeed = -1;
+		float speedInterval = 1.0f / speedInputs.Length;
+		float newAngle = -1;
+		float rotationInterval = 180.0f / rotationInputs.Length;
+      
+		for (int i = 0; i < speedInputs.Length; i++) {
 
-        //    Debug.Log("Data1: " + data);
-        //    dataText.text = data + "," + counter;
-        //    counter = ++counter%100;
-        //    string[] values = data.Split(',');   //recevied data looks like this: 150,20
-        //    float rawSpeed = -1;
-        //    float rawAngle = -1;
-        //    bool valid = true;
-        //    valid = valid && float.TryParse(values[0], out rawSpeed);
-        //    valid = valid && float.TryParse(values[1], out rawAngle);
+			if(Input.GetKeyDown(speedInputs[i]))
+			{
+                newSpeed = speedMap[i];
+                //break;
+			}
+		}
 
+		for (int i = 0; i < rotationInputs.Length; i++) {
 
-        //    if (valid)
-        //    {
-        //        angle = rawAngle;
-        //        //angle = 127;
-        //        speed = rawSpeed;
-        //    }
-        //    else
-        //    {
-        //        Debug.LogWarning("Ardunio error on parsing data" + values);
-        //    }
+			if(Input.GetKeyDown(rotationInputs[i]))
+			{
+                newAngle = angleMap[i];
+				break;
+			}
+		}
 
-        //}
+        if (newAngle > 0 && Math.Abs(newAngle - nextAngle) > Mathf.Epsilon) 
+		{
+            nextAngle = newAngle;
+			interTimerAngle = 0;
+		}
+		if (newSpeed > 0)
+		{
+			nextSpeed = newSpeed;
+			interTimerSpeed = 0;
+		}
 
+		interTimerAngle = Mathf.Clamp01(interTimerAngle + Time.deltaTime * 10);
+		interTimerSpeed = Mathf.Clamp01(interTimerSpeed + Time.deltaTime * 3);
 
-        try
+        if(newSpeed < 0 && drag > 0)
         {
-            string data = bicyclePort.ReadLine();
-            Debug.Log("Data Speed,Angle: " + data);
-
-            dataText.text = data + "," + counter;
-            counter = ++counter % 100;
-
-            string[] values = data.Split(',');   //recevied data looks like this: 150,20
-            float rawSpeed = -1;
-            float rawAngle = -1;
-            bool valid = true;
-            valid = valid && float.TryParse(values[0], out rawSpeed);
-            valid = valid && float.TryParse(values[1], out rawAngle);
-
-            Debug.Log("Raw" + rawSpeed + "," + rawAngle);
-
-            if (valid)
-            {
-                angle = rawAngle;
-                speed = rawSpeed;
-            }
-            else
-            {
-                Debug.LogWarning("Ardunio error on parsing data" + values);
-            }
-        }
-        catch (Exception e)
+			speed = Mathf.Clamp01(speed - drag * Time.deltaTime);
+			Debug.Log ("Drag");
+        }else
         {
-            dataText.text = "Exp" + e.Message;
-            //Debug.LogWarning("TimeOut");
-            //enabled = false;
+            speed = Mathf.Lerp(speed,nextSpeed,interTimerSpeed);
         }
 
+		angle = Mathf.Lerp(angle,nextAngle,interTimerAngle);
 
     }
 
-
-
-    //public void ReCalibSteering()               //you can use this function for recalibrate angle sensor. resets middle point of steering to 90.
-    //{                                           //after using this function wait for 2 seconds for restarting arduino.
-    //    bicyclePort.Close();
-    //    bicyclePort = new SerialPort(comPort, 57600); // port define.
-    //    bicyclePort.Open();
-    //    bicyclePort.ReadTimeout = 30;              //set this variable with arduino 1 loop time.
-
-    //}
+    public bool Ready() 
+    {
+        //return port.IsOpen;
+		return true;
+    }
 
 
     private void OnEnable()
     {
+        //TODO uncomment
         GameState.EventStartGame.Register(OnStartGame);
     }
 
     private void OnDisable()
     {
-        bicyclePort.Close();
-        //serialPortController.Stop();
-        Debug.Log("Stop Serial Port");
-       
+        port.Close();
+        //TODO uncomment
         GameState.EventStartGame.Unregister(OnStartGame);
     }
 
     void OnStartGame()
     {
-        isStart = true;
+        gameStarted = true;
     }
 
 

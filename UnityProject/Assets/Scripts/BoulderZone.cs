@@ -13,8 +13,10 @@ public class BoulderZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+		Debug.Log ("Trigger");
         if (other.transform.HasComponent<Player>())
         {
+			Debug.Log ("Player Enter");
             spawn = true;
             EventManager.enterBoulder.Invoke();
         }
@@ -38,19 +40,22 @@ public class BoulderZone : MonoBehaviour
 
     private void CheckSpawn()
     {
-        if (currentSpawnTime <= 0)
-        {
-            currentSpawnTime = Random.Range(minSpawnTime, maxSpawnTime);
-            SpawnBoulder();
-        }
-        else
-            currentSpawnTime -= Time.deltaTime;
+		if (currentSpawnTime <= 0) {
+			currentSpawnTime = Random.Range (minSpawnTime, maxSpawnTime);
+			SpawnBoulder ();
+		} else {
+			currentSpawnTime -= Time.deltaTime;
+		}
+          
     }
 
     private void SpawnBoulder()
     {
-        if (boulderSpawn != null && boulderSpawn.Length > 0)
-            ResourceManager.GetBoulder(boulderSpawn.PickRandom().position);
+		if (boulderSpawn != null && boulderSpawn.Length > 0)
+		{
+			ResourceManager.GetBoulder(boulderSpawn.PickRandom().position);
+			Debug.Log ("Boulder");
+		}
         else
         {
             enabled = false;
