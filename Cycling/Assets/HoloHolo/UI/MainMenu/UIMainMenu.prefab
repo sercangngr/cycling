@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 1865123430025542, guid: a8fb94b6ef3fc4b4e94f904e2c16fa40, type: 2}
   - {fileID: 1918634371116478, guid: 340e4e0a580e3412c9ab1dc9977fe237, type: 2}
   - {fileID: 1949947585565278, guid: deda030c396e14e1fb16faf08ece9a27, type: 2}
+  - {fileID: 1459415071123830, guid: 94a53d49ea07f473c9c617aa4ccf60b4, type: 2}
   currentPage: {fileID: 0}
   gameUIPrefab: {fileID: 1894501348275408, guid: 376289c778b184c59b6b5eb94adf0aa6,
     type: 2}

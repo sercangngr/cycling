@@ -21,16 +21,9 @@ public class UIMainMenu : MonoBehaviour
 
     void SetPage(int pageNo)
     {
-        if(pageNo == pagePrefabs.Length)
-        {
-            Destroy(gameObject);
-            Instantiate(gameUIPrefab);
-            GameState.Instance.StartGame();
-            return;
-        }
+		Debug.Log(pageNo);
 
-
-        pageNo = Mathf.Clamp(pageNo, 0, pagePrefabs.Length - 1);
+        pageNo = Mathf.Clamp(pageNo, 0, pagePrefabs.Length);
         if(pageNo != pageIndex)
         {
             pageIndex = pageNo;
@@ -38,8 +31,17 @@ public class UIMainMenu : MonoBehaviour
             {
                 Destroy(currentPage);
             }
-            currentPage = Instantiate(pagePrefabs[pageIndex], transform);
+			if(pageIndex == pagePrefabs.Length - 1)
+			{
+				Destroy(gameObject);
+				currentPage = Instantiate(pagePrefabs[pageIndex]);
+			}else
+			{
+				currentPage = Instantiate(pagePrefabs[pageIndex], transform);
+			}
         }
+
+
     }
 
 
