@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: BonusCol
   m_EditorClassIdentifier: 
   notificationName: Bonus Puan
-  texture: {fileID: 2800000, guid: 8803078f4a44771419adc7d2c30fca88, type: 3}
+  texture: {fileID: 2800000, guid: 11b4f69dca4f78a49b9675696134eee4, type: 3}
   type: 5
   energy: 0
   score: 10

@@ -81,4 +81,13 @@ public class Player : MonoBehaviour
 		state.position = transform.position;
 	}
 
+	private void OnTriggerEnter(Collider other)
+	{
+		Collectable collectable = other.GetComponent<Collectable>();
+		if(collectable != null)
+		{
+			collectable.OnPlayerEnter(this);
+		}
+	}
+
 }

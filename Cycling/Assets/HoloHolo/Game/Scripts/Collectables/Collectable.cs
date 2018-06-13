@@ -32,7 +32,7 @@ public class Collectable : MonoBehaviour
 	}
 
 
-	void OnPlayerEnter(Player player)
+	public void OnPlayerEnter(Player player)
 	{
 		GameState.EventNotify.Fire(item);
 
@@ -51,6 +51,12 @@ public class Collectable : MonoBehaviour
 		{
 			player.state.hasTorch = true;
 		}
+        
+		GetComponent<AudioSource>().Play();
+		Destroy(GetComponent<MeshRenderer>());
+		Destroy(gameObject,2f);
+		Destroy(this);
+        
 
 	}
 }
