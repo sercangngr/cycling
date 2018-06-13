@@ -7,7 +7,7 @@ public class Torchlight : PowerUp
         gameObject.SetActive(false);
         base.PickUp();
 
-		GameObject.FindObjectOfType<Player> ().hasTorch = true;
+		//GameObject.FindObjectOfType<Player> ().hasTorch = true;
 
     }
 }

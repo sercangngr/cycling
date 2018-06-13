@@ -10,18 +10,13 @@
 
 *Kasket, Tshirt, Bisiklet, Şort
 
-
-
 *Başlangıç sayacı
+
 
 *Sosyal medya paylaşımı qr code
 
-*Skor tablosu
-- Oyuncunun adı, Skor, Mesafe
-Skor: Oyun boyunca topladığı objelerin puanı olsun ve skora eklensin, oyun sonunda kalan enerji de 2 ile çarpılıp skora eklensin.
+----
 
-
-*Max 4dk min 2dk oyun süresi
 
 *Toplanabilir Objeler, 
 Küp üzerinde resim var, her obje alındığında yandaki popupta resmi çıkıcak ve adı yazıcak
@@ -63,3 +58,12 @@ Eğer ışık objesini almazsa oyuncunun hızı normalden %50 daha yavaş olsun.
 *Başlangıç ve Bitiş Noktası Gidilen Mesafeyi gösteren bir bar
 
 *Enerji: Max enerji seviyesi 100 olsun. Her 4 saniyede 1, 1 birim azalsın. Oyunda zorluk yaratan bölgelere göre belirtilen oranlarda ekstradan enerjisi azalsın. Enerji azaldıkça hareket kabiliyeti de azalmış olsun, normal hızından %20-30 daha yavaş gitsin. Enerjisi bittiğinde kullanıcı hareket edemesin ; oyun bitsin.
+
+
+
+*Skor tablosu
+- Oyuncunun adı, Skor, Mesafe
+Skor: Oyun boyunca topladığı objelerin puanı olsun ve skora eklensin, oyun sonunda kalan enerji de 2 ile çarpılıp skora eklensin.
+
+
+*Max 4dk min 2dk oyun süresi

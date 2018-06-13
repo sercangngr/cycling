@@ -64,17 +64,17 @@ public class GameUI : MonoBehaviour
 	}
 
 
-    IEnumerator OnGameStarted()
+	IEnumerator OnGameStarted(PlayerState playerState)
     {
-        float initTime = GameState.Instance.timeLeft;
-        float initEnergy = GameState.Instance.energyLeft;
-        float initDistance = GameState.Instance.distanceLeft;
+		float initTime = playerState.timeLeft;
+		float initEnergy = playerState.energyLeft;
+		float initDistance = playerState.distanceLeft;
 
         while(this != null && enabled)
         {
-            float tTime = GameState.Instance.timeLeft / initTime;
-            float tEnergy = GameState.Instance.energyLeft / initEnergy;
-            float tDistance = GameState.Instance.distanceLeft / initDistance;
+			float tTime = playerState.timeLeft / initTime;
+			float tEnergy = playerState.energyLeft / initEnergy;
+			float tDistance = playerState.distanceLeft / initDistance;
 
             timeBar.fillAmount = tTime;
             energyBar.fillAmount = tEnergy;
@@ -82,9 +82,9 @@ public class GameUI : MonoBehaviour
            // Debug.Log("Distance" + tDistance);
             distanceBar.fillAmount = 1 - tDistance;
 
-            timeText.text = "Kalan Süre " + ((int)GameState.Instance.timeLeft);
-            energyText.text = "Kalan Enerji " + ((int)GameState.Instance.energyLeft);
-            scoreText.text = "Skor\n" + GameState.Instance.score;
+			timeText.text = "Kalan Süre " + ((int)playerState.timeLeft);
+			energyText.text = "Kalan Enerji " + ((int)playerState.energyLeft);
+			scoreText.text = "Skor\n" + playerState.score;
 
             yield return null;
         }

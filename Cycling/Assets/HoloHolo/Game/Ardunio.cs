@@ -190,7 +190,7 @@ public class Ardunio : UnitySingleton<Ardunio>
         GameState.EventStartGame.Unregister(OnStartGame);
     }
 
-    void OnStartGame()
+	void OnStartGame(PlayerState playerState)
     {
         gameStarted = true;
     }

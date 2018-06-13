@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="Item")]
+[CreateAssetMenu(fileName ="Item",menuName ="KabukRace/UI_Item")]
 public class UIItem : ScriptableObject 
 {
     public string text;

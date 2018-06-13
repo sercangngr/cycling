@@ -12,7 +12,7 @@ public class TireSpinner : MonoBehaviour {
         {
             //Quaternion rot = Quaternion.AngleAxis(Controller.Instance.speed * Time.deltaTime * 100, Vector3.left);
             Quaternion rot = new Quaternion();
-            transform.Rotate(new Vector3(0, -100 * Time.deltaTime * Controller.Instance.speed, 0));
+            //transform.Rotate(new Vector3(0, -100 * Time.deltaTime * Controller.Instance.speed, 0));
             //transform.localRotation = rot * transform.rotation;
             yield return null;
                

@@ -26,7 +26,7 @@ public class PowerUp : MonoBehaviour
         Notification not = new Notification();
         not.text = itemName;
         GameState.EventNotify.Fire(not);
-        GameState.Instance.score += (int)score;
+        //GameState.Instance.score += (int)score;
         SoundManager.instance.PickUpAudio.Play();
     }
 

@@ -6,64 +6,47 @@ using Kabuk;
 [UnitySingleton(UnitySingletonAttribute.Type.CreateOnNewGameObject)]
 public class GameState : UnitySingleton<GameState> 
 {
-    public class EventStartGame : CustomEvent<EventStartGame>{}
+	public class EventStartGame : CustomEvent<EventStartGame,PlayerState>{}
     public class EventGameOver : CustomEvent<EventGameOver>{}
-    public class EventNotify : CustomEvent<EventNotify,Notification>{}
+	public class EventNotify : CustomEvent<EventNotify,CollectableItem>{}
 
-
-    public float timeLeft = 120;
-    public float energyLeft = 100;
-    public int score = 0;
-    public float distanceLeft = 100;
-
-    Transform player;
-    Transform endPoint;
+	public PlayerState playerState;
 
     public void StartGame()
     {
-        timeLeft = 250;
-        energyLeft = 300;
-        score = 0;
-        player = GameObject.Find("Player").transform;
-        endPoint = GameObject.Find("Finish").transform;
-        distanceLeft = Marks.Instance.GetDistance(player.transform.position);
-        Debug.Log(distanceLeft);
+		playerState = new PlayerState();
 
-
-
-
-        EventStartGame.Fire();
+		EventStartGame.Fire(playerState);
         EventManager.start.Invoke();
         EventManager.pause.Invoke(false);
-        StartCoroutine(Track());
 
         SoundManager.instance.InGameAudio.Play();
 
     }
 
-    IEnumerator Track()
-    {
-        bool run = true;
-        while (run)
-        {
-            timeLeft -= Time.deltaTime;
-            distanceLeft = Marks.Instance.GetDistance(player.transform.position);
+    //IEnumerator Track()
+    //{
+    //    //bool run = true;
+    //    //while (run)
+    //    //{
+    //    //    timeLeft -= Time.deltaTime;
+    //    //    distanceLeft = Marks.Instance.GetDistance(player.transform.position);
 
 
 
-            if(timeLeft <= 0 || energyLeft <= 0 || distanceLeft < 0.5f)
-            {
-                EventGameOver.Fire();
-                run = false;
-            }
-            yield return null;
-        }
+    //    //    if(timeLeft <= 0 || energyLeft <= 0 || distanceLeft < 0.5f)
+    //    //    {
+    //    //        EventGameOver.Fire();
+    //    //        run = false;
+    //    //    }
+    //    //    yield return null;
+    //    //}
        
-    }
+    //}
 
     public int GetScore()
     {
-        return GameState.Instance.score + (int)GameState.Instance.energyLeft * 2 + (int)GameState.Instance.timeLeft * 2;
+		return (int)(playerState.score + playerState.energyLeft * 2 + playerState.timeLeft * 2);
     }
 
 

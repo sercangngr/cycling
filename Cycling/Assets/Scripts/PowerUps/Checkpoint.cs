@@ -4,9 +4,9 @@ public class Checkpoint : PowerUp
 
     public override void PickUp()
     {
-        EventManager.checkpointPickedUp.Invoke(bonusTime);
-        GameState.Instance.timeLeft += bonusTime;
-        gameObject.SetActive(false);
-        base.PickUp();
+        //EventManager.checkpointPickedUp.Invoke(bonusTime);
+        //GameState.Instance.timeLeft += bonusTime;
+        //gameObject.SetActive(false);
+        //base.PickUp();
     }
 }
