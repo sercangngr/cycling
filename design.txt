@@ -1,0 +1,65 @@
+*Oyun Oynanmadığında Demo Video Oynat
+
+*Başlat Menüsü ( Her Seçilebilir item için 3-4 seçenek)
+-Kadın Erkek
+-Kıyafet
+-Kask 
+-Şapka
+-Eldiven
+-Mont, Polar
+
+*Kasket, Tshirt, Bisiklet, Şort
+
+
+
+*Başlangıç sayacı
+
+*Sosyal medya paylaşımı qr code
+
+*Skor tablosu
+- Oyuncunun adı, Skor, Mesafe
+Skor: Oyun boyunca topladığı objelerin puanı olsun ve skora eklensin, oyun sonunda kalan enerji de 2 ile çarpılıp skora eklensin.
+
+
+*Max 4dk min 2dk oyun süresi
+
+*Toplanabilir Objeler, 
+Küp üzerinde resim var, her obje alındığında yandaki popupta resmi çıkıcak ve adı yazıcak
+-Yağmurluk, yağmurlu alandan etkilenmiyor yaaşlamadan geçiyor, 10 puan
+-Saat, ekstra zaman veriyor
+-Enerji Barı,  enerji arttırıyor
+-Koruma Kalkanı, çarpılan engellerden etkilenmiyor
+-Işık, tünele girince yanıyor
+-Bonus Objeler sadece skor veriyor
+
+*Engel
+-Her Engelden Önce Rastgele bir Kalkan var
+-su birikintileri, kayalıklar, zehirli özel çalılıklar
+-Barikat
+
+*Yağmurlu Bölge
+-Yavaşlatıyor ve ekstra enerji harcatıyor
+
+*Kayalıklı Bölge
+-İçine girince kayalar düşmeye başlıyor
+-Korunma kalkanı burdada etkili
+
+*Tünel
+-Karanlık
+-Önünde Işık Var alırsa aydınlatıyor
+-İçinde barikatlar var çarparsa enerjisi düşüyor, barikatlar zigzaglı
+-tünelden önce ışık ve koruma kalkanı
+
+*Bisiklet
+-Hareket ettikçe enerjiyi azalt
+
+
+Yolda giderken alaca karanlık bir tünele girsin. 
+Tünelden önce aşağıda belirttiğim objeyi alabiliyor olsun. Obje karanlık tünelde bisikletin önündeki ışıklandırma olacak. Işık tünele girdiği andan itibaren yanmaya başlayıp çıktığında sönecek. Tünelden çıkıp geriye doğru geri dönerse tünelde ışık tekrar yanmayacak. 
+
+Eğer ışık objesini almazsa oyuncunun hızı normalden %50 daha yavaş olsun. Tünelde önünü kesen çalışma barikatları olsun. Tünel içinde zigzag şeklinde hareket ettirebiliriz. Eğer barikatlara çarparsa enerjisi 20 birim düşsün. Tünelden önce 1 adet koruma kalkanı konumlandırılabilir. Tünel uzunluğuna *parametreye göre karar verilebilir. Kalkan tüm tünel boyunca devam etmesin, belirli bir yerinde sona erebilir. 
+
+
+*Başlangıç ve Bitiş Noktası Gidilen Mesafeyi gösteren bir bar
+
+*Enerji: Max enerji seviyesi 100 olsun. Her 4 saniyede 1, 1 birim azalsın. Oyunda zorluk yaratan bölgelere göre belirtilen oranlarda ekstradan enerjisi azalsın. Enerji azaldıkça hareket kabiliyeti de azalmış olsun, normal hızından %20-30 daha yavaş gitsin. Enerjisi bittiğinde kullanıcı hareket edemesin ; oyun bitsin.

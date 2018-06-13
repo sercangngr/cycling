@@ -1,0 +1,24 @@
+*Oyun oynanmadığında; ekranda oyun demosu ya da bizim decathlon içinde kullandığımız videolar dönebilir.
+
+*Oyunu başlatmak için “Başlat” komutunu veren herhangi bir tetikleyici olabilir.
+
+*Kullanıcı oyunu başlattığında oyun hemen başlamayacak, kendine avatar seçip; uyarlayabilsin. 
+Kadın- Erkek seçimi yapabilsin
+Üzerine giyebileceği kıyafeti seçebilsin; aksesuar olarak kask, şapka, eldiven vs., üst olarak mont, polar gibi komple bir tasarım yapabiliyor olsun. Kıyafeti, avatarın üzerine giydirilmesine gerek yok; giydirilmiş gibi bir izlenim oluşturabiliriz. Avatar’a giydirilmesi, ilerleyen zamanlarda düşünülebilir.
+Kıyafet ve aksesuarlar bizim ürünlerimiz olacaktır. Oyun içinde sadece el görüleceği için el aksesuarı hariç görünmesine gerek yok. Amaç ürünlerimizi sergileyebilmek.
+Ayrıca donanım olarak tek bisiklet koysak da; oyunda bisikletlerde seçilebilir olsun. 
+Tüm bu seçilebilir ürünler için 3 ya da 4’er adet görsel yeterli olacaktır.
+
+*Oyuna başlandığında kullanıcının hazır olması için 10 sn bekletilebilir.
+
+*Oyun çoklu kullanıcının oynayabileceği bir şekilde tasarlanabilir. İlgiye göre ikinci bir bisiklet de eklenebilir.
+
+????? - Daha sonrasında dağ bisikletinden, normal yol bisikletine geçiş yapılabilir. Bu nedenle 2. platform başlangıçta olmasa da sonradan bisiklete değiştirilirse, dağ platformundan farklı  platformda seçilebilir olsun.
+
+*Oyun sonradan sosyal medyada paylaşılabilir olabilir. Altyapı buna göre hazırlanabilir.
+
+*Oyun sonunda skor tablosu paylaşılsın: detaylar altta paylaşılmıştır.
+
+*Oyun maksimum default olarak max: 4 dakika, min: 2 dakika olsun.
+
+????? - Oyun içerisinde bizim ürünlerimizin yerleştirildiği bir hikaye olacaktır.
