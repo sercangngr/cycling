@@ -23,11 +23,11 @@ public class PowerUp : MonoBehaviour
     public virtual void PickUp()
     {
         EventManager.powerUpPickedUp.Invoke(this);
-        Notification not = new Notification();
-        not.text = itemName;
-        GameState.EventNotify.Fire(not);
-        //GameState.Instance.score += (int)score;
-        SoundManager.instance.PickUpAudio.Play();
+        //Notification not = new Notification();
+        //not.text = itemName;
+        //GameState.EventNotify.Fire(not);
+        ////GameState.Instance.score += (int)score;
+        //SoundManager.instance.PickUpAudio.Play();
     }
 
 }

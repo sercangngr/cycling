@@ -22,16 +22,16 @@ public class GameUI : MonoBehaviour
     public Text energyText;
     public Text scoreText;
 
-    void OnNewNotification(Notification notification)
+	void OnNewNotification(CollectableItem item)
     {
         if(notifications.Count == 3)
         {
             Destroy(notifications[0]);
             notifications.RemoveAt(0);
         }
-
+        
         GameObject not = Instantiate(notificationPrefab, notificationContainer);
-        not.GetComponentInChildren<Text>().text = notification.text;
+		not.GetComponentInChildren<Text>().text = item.notificationName;
         notifications.Add(not);
         StartCoroutine(RemoveNotification(not));
 

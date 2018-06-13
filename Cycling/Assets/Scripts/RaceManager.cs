@@ -5,9 +5,6 @@ public class RaceManager : Singleton<RaceManager>
 {
     private GameObject startPos;
 
-    [SerializeField]
-    private RaceStatus status;
-
     private bool restarting = false;
 
     private PowerUp[] powerUps;
@@ -44,10 +41,6 @@ public class RaceManager : Singleton<RaceManager>
             Debug.LogWarning("No checkpoints in current scene!");
 
         EventManager.pause.Invoke(true);
-        status.startPos = startPos.transform.position;
-        Finish f;
-        if (Utils.SetObject(out f))
-            status.finishPos = f.transform.position;
     }
 
     private void Update()
@@ -57,13 +50,10 @@ public class RaceManager : Singleton<RaceManager>
 
     public void CheckpointReached(float time)
     {
-        status.currentRaceTime += time;
     }
 
     private void FinishReached()
     {
-        Debug.Log("Race compleated!");
-        status.paused = true;
         EventManager.pause.Invoke(true);
         UIManager.GenerateQR(ShareSettings.GetTwitterLink(), ShareSettings.GetFacebookLink());
     }
@@ -79,26 +69,10 @@ public class RaceManager : Singleton<RaceManager>
             powerUps[i].gameObject.SetActive(true);
 
         EventManager.restartRace.Invoke(startPos.transform);
-        status.Reset();
-        StartCoroutine(CountDown());
     }
 
     private void Pause(bool state)
     {
-        status.paused = state;
     }
 
-    private IEnumerator CountDown()
-    {
-        Debug.Log("Counting down...");
-        while (status.currentCountDown > 0)
-        {
-            status.currentCountDown -= Time.deltaTime;
-            yield return null;
-        }
-
-        EventManager.start.Invoke();
-        EventManager.pause.Invoke(false);
-        restarting = false;
-    }
 }
