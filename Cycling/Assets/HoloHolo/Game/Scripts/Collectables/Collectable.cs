@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectable : MonoBehaviour 
+public class Collectable : MonoBehaviour,PlayerTriggerListener
 {
 	public CollectableItem item;
 
@@ -45,6 +45,7 @@ public class Collectable : MonoBehaviour
 			player.state.hasRainCoat = true;
 		}else if(item.type == CollectableItem.Type.SHIELD)
 		{
+
 			player.state.hasShield = true;
 			player.state.shieldTimer = PlayerState.ShieldDuration;
 		}else if(item.type == CollectableItem.Type.LIGHT)
@@ -58,5 +59,10 @@ public class Collectable : MonoBehaviour
 		Destroy(this);
         
 
+	}
+
+	public void OnPlayerExit(Player player)
+	{
+		
 	}
 }

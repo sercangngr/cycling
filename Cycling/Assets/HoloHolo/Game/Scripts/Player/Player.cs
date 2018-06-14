@@ -44,18 +44,49 @@ public class Player : MonoBehaviour
 	{
 		float turningAmount = Input.GetAxis("Horizontal") * RotationSpeed * Time.deltaTime;
 		handleBarRotation += turningAmount;
+		handleBarRotation = Mathf.Clamp(handleBarRotation, -90, 90);
+        
 		Turn(handleBarRotation);
 
 		float y = Input.GetAxis("Vertical");
 		speed += y * Acceleration * Time.deltaTime;
 		speed -= Time.deltaTime * Drag;
-		speed = Mathf.Clamp(speed, 0, MaxSpeed);
-		
+        speed = Mathf.Clamp(speed, 0, MaxSpeed);
+        
+        
+
+		float energyConsumption = Time.deltaTime * 0.25f;
+		if(state.insideRain)
+		{
+			energyConsumption *= PlayerState.RainEnergyConsumptionMultiplier;
+		}else if(state.insideTunnel)
+		{
+			energyConsumption *= PlayerState.TunnelConsumptionMultiplier;
+		}
+        
+		state.energyLeft -= Time.deltaTime / 4;
+
+		if(state.hasShield)
+		{
+			state.shieldTimer -= Time.deltaTime;
+			if(state.shieldTimer < 0)
+			{
+				state.hasShield = false;
+			}
+		}
+        
+        
+
 	}
     
 	private void FixedUpdate()
 	{
-		Vector3 vel = speed * handleBar.transform.forward;
+		float s = speed;
+		if (state.speedEffectorCounter > 0)
+        {
+            s *= state.speedMultiplier;
+        }
+		Vector3 vel = s * handleBar.transform.forward;
 		vel.y = rigid.velocity.y;
 		rigid.velocity = vel;
 
@@ -83,11 +114,21 @@ public class Player : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Collectable collectable = other.GetComponent<Collectable>();
-		if(collectable != null)
+		PlayerTriggerListener[] listeners = other.GetComponents<PlayerTriggerListener>();
+		for (int i = 0; i < listeners.Length; i ++)
 		{
-			collectable.OnPlayerEnter(this);
+			listeners[i].OnPlayerEnter(this);
 		}
+
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		PlayerTriggerListener[] listeners = other.GetComponents<PlayerTriggerListener>();
+        for (int i = 0; i < listeners.Length; i++)
+        {
+			listeners[i].OnPlayerExit(this);
+        }
 	}
 
 }

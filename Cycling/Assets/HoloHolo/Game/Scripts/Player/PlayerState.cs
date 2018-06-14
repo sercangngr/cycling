@@ -6,8 +6,9 @@ using UnityEngine;
 public class PlayerState 
 {
 	public const float ShieldDuration = 5;
-	public const float RainSlowdownCoef = 0.5f;
-	public const float TunnelSlowdownCoef = 0.5f;
+	public const float RainEnergyConsumptionMultiplier = 1.1f;
+	public const float TunnelConsumptionMultiplier = 1.1f;
+
 
 	public bool hasShield = false;
 	public float shieldTimer = 0;
@@ -23,6 +24,9 @@ public class PlayerState
 	public float timeLeft = 250;
 	public float energyLeft = 300;
 	public float distanceLeft = 150;
+
+	public float speedMultiplier = 1;
+	public int speedEffectorCounter = 0;
 
 
 }

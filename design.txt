@@ -12,10 +12,9 @@
 
 *Başlangıç sayacı
 
-
+O
 *Sosyal medya paylaşımı qr code
 
-----
 
 
 *Toplanabilir Objeler, 
@@ -27,13 +26,17 @@ Küp üzerinde resim var, her obje alındığında yandaki popupta resmi çıkı
 -Işık, tünele girince yanıyor
 -Bonus Objeler sadece skor veriyor
 
+
 *Engel
 -Her Engelden Önce Rastgele bir Kalkan var
 -su birikintileri, kayalıklar, zehirli özel çalılıklar
 -Barikat
 
+
 *Yağmurlu Bölge
 -Yavaşlatıyor ve ekstra enerji harcatıyor
+
+----
 
 *Kayalıklı Bölge
 -İçine girince kayalar düşmeye başlıyor
