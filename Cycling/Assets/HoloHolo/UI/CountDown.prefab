@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterText: {fileID: 114968116717463268}
+  gameUIPrefab: {fileID: 0}
   counter: 4
 --- !u!114 &114159173959002942
 MonoBehaviour:

@@ -22,3 +22,15 @@ Tüm bu seçilebilir ürünler için 3 ya da 4’er adet görsel yeterli olacakt
 *Oyun maksimum default olarak max: 4 dakika, min: 2 dakika olsun.
 
 ????? - Oyun içerisinde bizim ürünlerimizin yerleştirildiği bir hikaye olacaktır.
+
+* Oyun içerisinde bir bölümde yağmur yağsın. Yağan bölgeden geçtiğinde kullanıcı hakimiyeti zayıf olsun. Fakat öncesinde konumlandırılmış “yağmurluk” ürününü aldığında bu platformdan dokunmazlık ürünü almış gibi rahat geçebilsin.
+
+* Saat objemiz olsun; onu aldığında oynadığı oyun süresi artsın. Başta belirttiğimiz 4 dakikalık süreyi geçebilir max 5 dk yapabilir. Fakat hiç obje almazsa 4 dakika içerisinde sınırlı kalsın.
+
+*Oyun içerisinde su birikintileri, bozuk çamurlu yol gibi yerler olabilir. Buradaki amacımız oyuncu burdan geçtiğinde “canından/gücünden” azalsın; azaldıkça da oyunun hareket etmesi zorlaşsın. Bizim Aptonia markası enerji barı aldığında tekrar artsın.
+
+*Aynı zamanda oyundan bağımsız, random atanmış, bonus objeler olsun. Objelerin şekli yan resimdeki gibi küpler olabilir. Bonular soru işareti şeklinde olabilir. Diğer oyunu ilgilendiren objeler küplerin üzerine ürün resmi entegre edilerek de sergilenebilir.
+
+*Kullanıcı her objeyi aldığında yan tarafta topladığı objeler gözükebilir. Örneğin: “Saat” almışssa yan tarafta saat ürün görseliyle geri sayan zaman görseli konulabilir.
+
+*Objeleri topladığında ufak parıltılı animasyonlar dönebilir.

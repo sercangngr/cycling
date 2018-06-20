@@ -17,9 +17,6 @@ public class GameState : UnitySingleton<GameState>
 		playerState = new PlayerState();
 
 		EventStartGame.Fire(playerState);
-        EventManager.start.Invoke();
-        EventManager.pause.Invoke(false);
-
         SoundManager.instance.InGameAudio.Play();
 
     }

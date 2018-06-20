@@ -66,20 +66,25 @@ public class GameUI : MonoBehaviour
 
 	IEnumerator OnGameStarted(PlayerState playerState)
     {
+		yield return null;
+
 		float initTime = playerState.timeLeft;
 		float initEnergy = playerState.energyLeft;
-		float initDistance = playerState.distanceLeft;
+		float initDistance = Marks.Instance.GetDistance(playerState.position);
 
         while(this != null && enabled)
         {
 			float tTime = playerState.timeLeft / initTime;
 			float tEnergy = playerState.energyLeft / initEnergy;
-			float tDistance = playerState.distanceLeft / initDistance;
+			float tDistance = Marks.Instance.GetDistance(playerState.position) / initDistance;
+
 
             timeBar.fillAmount = tTime;
             energyBar.fillAmount = tEnergy;
 
-           // Debug.Log("Distance" + tDistance);
+            Debug.Log("Distance" + tDistance);
+			Debug.Log(Marks.Instance.GetDistance(playerState.position) + "," + initDistance);
+
             distanceBar.fillAmount = 1 - tDistance;
 
 			timeText.text = "Kalan Süre " + ((int)playerState.timeLeft);

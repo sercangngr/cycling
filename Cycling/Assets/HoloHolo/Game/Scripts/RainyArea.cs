@@ -11,14 +11,20 @@ public class RainyArea : MonoBehaviour, PlayerTriggerListener
 	public void OnPlayerEnter(Player player)
 	{
 		player.state.insideRain = true;
-		player.state.speedEffectorCounter++;
-		player.state.speedMultiplier = speedMultiplier;
+		if(!player.state.hasRainCoat)
+		{
+			player.state.speedEffectorCounter++;
+			player.state.speedMultiplier = speedMultiplier;
+        }
 	}
 
 	public void OnPlayerExit(Player player)
 	{
 		player.state.insideRain = false;
-		player.state.speedEffectorCounter--;
+		if(!player.state.hasRainCoat)
+		{
+			player.state.speedEffectorCounter--;
+        }
 	}
     
 	private void OnDrawGizmos()

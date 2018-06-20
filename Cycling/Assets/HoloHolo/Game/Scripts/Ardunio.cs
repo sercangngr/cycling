@@ -160,7 +160,6 @@ public class Ardunio : UnitySingleton<Ardunio>
         if(newSpeed < 0 && drag > 0)
         {
 			speed = Mathf.Clamp01(speed - drag * Time.deltaTime);
-			Debug.Log ("Drag");
         }else
         {
             speed = Mathf.Lerp(speed,nextSpeed,interTimerSpeed);

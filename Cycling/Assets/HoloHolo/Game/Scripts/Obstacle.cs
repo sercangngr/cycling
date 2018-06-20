@@ -12,7 +12,7 @@ public class Obstacle : MonoBehaviour, PlayerTriggerListener
 
 	public void OnPlayerEnter(Player player)
 	{
-
+		RemoveMeshes();
 		if(player.state.hasShield)
 		{
 			Destroy(this);
@@ -22,6 +22,18 @@ public class Obstacle : MonoBehaviour, PlayerTriggerListener
 		player.state.energyLeft -= consumedEnergy;
 		player.state.speedEffectorCounter++;
 		player.state.speedMultiplier = speedMultiplier;
+
+        
+
+	}
+
+	void RemoveMeshes()
+	{
+		MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
+		for (int i = 0; i < renderers.Length; i ++)
+		{
+			Destroy(renderers[i]);
+		}
 
 	}
 

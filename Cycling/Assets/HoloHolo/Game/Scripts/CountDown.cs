@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class CountDown : MonoBehaviour 
 {
 	public Text counterText;
+	public GameObject gameUIPrefab;
+
 
 	public int counter;
 	float timer;
@@ -26,6 +28,7 @@ public class CountDown : MonoBehaviour
 		if(timer <= 0)
 		{
 			Destroy(gameObject);
+			Instantiate(gameUIPrefab);
 			GameState.Instance.StartGame();
 		}
 	}

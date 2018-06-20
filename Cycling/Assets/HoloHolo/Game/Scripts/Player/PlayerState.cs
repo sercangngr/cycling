@@ -9,6 +9,7 @@ public class PlayerState
 	public const float RainEnergyConsumptionMultiplier = 1.1f;
 	public const float TunnelConsumptionMultiplier = 1.1f;
 
+	public bool started = false;
 
 	public bool hasShield = false;
 	public float shieldTimer = 0;
@@ -23,7 +24,6 @@ public class PlayerState
 	public float score = 0;
 	public float timeLeft = 250;
 	public float energyLeft = 300;
-	public float distanceLeft = 150;
 
 	public float speedMultiplier = 1;
 	public int speedEffectorCounter = 0;

@@ -42,41 +42,67 @@ public class Player : MonoBehaviour
 
 	private void Update()
 	{
-		float turningAmount = Input.GetAxis("Horizontal") * RotationSpeed * Time.deltaTime;
-		handleBarRotation += turningAmount;
-		handleBarRotation = Mathf.Clamp(handleBarRotation, -90, 90);
-        
-		Turn(handleBarRotation);
+		if (!state.started) { return; }
 
-		float y = Input.GetAxis("Vertical");
-		speed += y * Acceleration * Time.deltaTime;
-		speed -= Time.deltaTime * Drag;
-        speed = Mathf.Clamp(speed, 0, MaxSpeed);
-        
-        
+		HandleInput();
+		UpdateState();
+	}
 
+	void UpdateState()
+	{
+		//TIME
+		state.timeLeft -= Time.deltaTime;
+
+        // ENERGY
 		float energyConsumption = Time.deltaTime * 0.25f;
-		if(state.insideRain)
-		{
-			energyConsumption *= PlayerState.RainEnergyConsumptionMultiplier;
-		}else if(state.insideTunnel)
-		{
-			energyConsumption *= PlayerState.TunnelConsumptionMultiplier;
-		}
-        
-		state.energyLeft -= Time.deltaTime / 4;
+        if (state.insideRain && !state.hasRainCoat)
+        {
+            energyConsumption *= PlayerState.RainEnergyConsumptionMultiplier;
+        }
+        else if (state.insideTunnel && !state.hasShield)
+        {
+            energyConsumption *= PlayerState.TunnelConsumptionMultiplier;
+        }
 
-		if(state.hasShield)
+		if(speed > 0)
 		{
-			state.shieldTimer -= Time.deltaTime;
-			if(state.shieldTimer < 0)
-			{
-				state.hasShield = false;
-			}
-		}
-        
-        
+			state.energyLeft -= Time.deltaTime / 4;
+        }
 
+        //SHIELD
+        if (state.hasShield)
+        {
+            state.shieldTimer -= Time.deltaTime;
+            if (state.shieldTimer < 0)
+            {
+                state.hasShield = false;
+            }
+        }
+
+		//POSITION
+		state.position = transform.position;
+		
+	}
+
+	void HandleInput()
+	{
+		float turningAmount = Input.GetAxis("Horizontal") * RotationSpeed * Time.deltaTime;
+        handleBarRotation += turningAmount;
+
+        /*
+        if ardunio ready:
+        handleBarRotation = Ardunio.handlebarRotation;
+        */
+
+        handleBarRotation = Mathf.Clamp(handleBarRotation, -90, 90);
+
+        Turn(handleBarRotation);
+
+        float y = Input.GetAxis("Vertical");
+        speed += y * Acceleration * Time.deltaTime;
+        speed -= Time.deltaTime * Drag;
+        speed = Mathf.Clamp(speed, 0, MaxSpeed);
+		
 	}
     
 	private void FixedUpdate()
@@ -109,6 +135,7 @@ public class Player : MonoBehaviour
 	void OnGameStarted(PlayerState playerState)
 	{
 		state = playerState;
+		state.started = true;
 		state.position = transform.position;
 	}
 
