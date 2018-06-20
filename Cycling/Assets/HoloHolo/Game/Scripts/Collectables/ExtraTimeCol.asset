@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a073447fe69f4d4e8f06d6956b87670, type: 3}
   m_Name: ExtraTimeCol
   m_EditorClassIdentifier: 
-  notificationName: Bonus Zaman
+  notificationName: Extra Zaman
   texture: {fileID: 2800000, guid: dc1ab02247e4f4742a31556980919556, type: 3}
   type: 1
   energy: 0
