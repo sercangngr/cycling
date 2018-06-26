@@ -15,6 +15,30 @@ public class Ardunio : UnitySingleton<Ardunio>
     public class EventButtonCheck : CustomEvent<EventButtonCheck> { }
     public class EventButtonCross : CustomEvent<EventButtonCross> { }
 
+	public class EventArdunioInput: CustomEvent<EventArdunioInput, AInput>{}
+
+	public class AInput
+	{
+		public const float LeftMostAngle = -90;
+		public const float RightMostAngle = 90;
+
+		public const float LowestSpeed = 0;
+		public const float HighestSpeed = 100;
+
+        // Between -1 and 1
+		public float normalizedHandleBarRotation;
+        // Between 0 and 1
+		public float normalizedSpeed;
+
+		public AInput(float nRotation, float nSpeed)
+		{
+			normalizedHandleBarRotation = nRotation;
+			normalizedSpeed = nSpeed;
+		}
+	}
+
+
+
 	SerialPortController serialPortController;
 	bool gameStarted = false;
 
@@ -72,6 +96,14 @@ public class Ardunio : UnitySingleton<Ardunio>
 		while(serialPortController.GetReceivedString(out rawData))
 		{
 			Debug.Log("Raw Data: " + rawData);
+			float rawRotation = 90;
+			float rawSpeed = 90;
+
+			float normalizedRotation = (rawRotation - AInput.LeftMostAngle) / (AInput.RightMostAngle - AInput.LeftMostAngle);
+			float normalizedSpeed = (rawSpeed - AInput.LowestSpeed) / (AInput.HighestSpeed - AInput.LowestSpeed);
+
+			EventArdunioInput.Fire(new AInput(normalizedRotation, normalizedSpeed));
+            
 		}
     }
 
@@ -90,6 +122,13 @@ public class Ardunio : UnitySingleton<Ardunio>
     {
         gameStarted = true;
     }
+
+
+	public bool Working
+	{
+		get { return serialPortController.IsInitialized && !serialPortController.ConnectionClosed; }
+	}
+    
 
 
 }

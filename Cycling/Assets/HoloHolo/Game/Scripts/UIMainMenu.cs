@@ -21,8 +21,6 @@ public class UIMainMenu : MonoBehaviour
 
     void SetPage(int pageNo)
     {
-		Debug.Log(pageNo);
-
         pageNo = Mathf.Clamp(pageNo, 0, pagePrefabs.Length);
         if(pageNo != pageIndex)
         {

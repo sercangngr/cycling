@@ -82,8 +82,6 @@ public class GameUI : MonoBehaviour
             timeBar.fillAmount = tTime;
             energyBar.fillAmount = tEnergy;
 
-            Debug.Log("Distance" + tDistance);
-			Debug.Log(Marks.Instance.GetDistance(playerState.position) + "," + initDistance);
 
             distanceBar.fillAmount = 1 - tDistance;
 
