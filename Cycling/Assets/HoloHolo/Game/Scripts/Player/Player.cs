@@ -81,6 +81,11 @@ public class Player : MonoBehaviour
 
 		//POSITION
 		state.position = transform.position;
+
+		if(state.energyLeft <= 0 || state.timeLeft <= 0)
+		{
+			GameState.EventGameOver.Fire();
+		}
 		
 	}
 
