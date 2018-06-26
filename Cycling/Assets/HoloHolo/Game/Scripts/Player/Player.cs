@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
 
     private Vector3 currentVel = Vector3.zero;
 
+	Ardunio.AInput ardunioInput;
+
+
 	private void Awake()
 	{
 		speed = 0;
@@ -81,27 +84,44 @@ public class Player : MonoBehaviour
 
 		//POSITION
 		state.position = transform.position;
+
+		if(state.energyLeft <= 0 || state.timeLeft <= 0)
+		{
+			GameState.EventGameOver.Fire();
+		}
 		
 	}
-
+    
 	void HandleInput()
 	{
-		float turningAmount = Input.GetAxis("Horizontal") * RotationSpeed * Time.deltaTime;
-        handleBarRotation += turningAmount;
 
-        /*
-        if ardunio ready:
-        handleBarRotation = Ardunio.handlebarRotation;
-        */
+		if(Ardunio.Instance.Working)
+		{
+			handleBarRotation = ardunioInput.normalizedHandleBarRotation * -90;
 
-        handleBarRotation = Mathf.Clamp(handleBarRotation, -90, 90);
+			float y = ardunioInput.normalizedSpeed;
+            speed += y * Acceleration * Time.deltaTime;
+            speed -= Time.deltaTime * Drag;
+            speed = Mathf.Clamp(speed, 0, MaxSpeed);
 
-        Turn(handleBarRotation);
+			
+		}else
+		{
+			float turningAmount = Input.GetAxis("Horizontal") * RotationSpeed * Time.deltaTime;
+            handleBarRotation += turningAmount;
 
-        float y = Input.GetAxis("Vertical");
-        speed += y * Acceleration * Time.deltaTime;
-        speed -= Time.deltaTime * Drag;
-        speed = Mathf.Clamp(speed, 0, MaxSpeed);
+           
+
+            handleBarRotation = Mathf.Clamp(handleBarRotation, -90, 90);
+
+            Turn(handleBarRotation);
+
+            float y = Input.GetAxis("Vertical");
+            speed += y * Acceleration * Time.deltaTime;
+            speed -= Time.deltaTime * Drag;
+            speed = Mathf.Clamp(speed, 0, MaxSpeed);
+			
+		}
 		
 	}
     
@@ -125,11 +145,13 @@ public class Player : MonoBehaviour
 	private void OnEnable()
 	{
 		GameState.EventStartGame.Register(OnGameStarted);
+		Ardunio.EventArdunioInput.Register(OnArdunioInput);
 	}
 
 	private void OnDisable()
 	{
 		GameState.EventStartGame.Unregister(OnGameStarted);
+		Ardunio.EventArdunioInput.Unregister(OnArdunioInput);
 	}
 
 	void OnGameStarted(PlayerState playerState)
@@ -156,6 +178,12 @@ public class Player : MonoBehaviour
         {
 			listeners[i].OnPlayerExit(this);
         }
+	}
+
+
+	void OnArdunioInput(Ardunio.AInput input)
+	{
+		ardunioInput = input;
 	}
 
 }
