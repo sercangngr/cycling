@@ -97,9 +97,11 @@ public class Player : MonoBehaviour
 
 		if(Ardunio.Instance.Working)
 		{
-			handleBarRotation = ardunioInput.normalizedHandleBarRotation * -90;
+			handleBarRotation = (ardunioInput.normalizedHandleBarRotation - 0.5f) * 90;
+            handleBarRotation = Mathf.Clamp(handleBarRotation, -90, 90);
+            Turn(handleBarRotation);
 
-			float y = ardunioInput.normalizedSpeed;
+            float y = ardunioInput.normalizedSpeed;
             speed += y * Acceleration * Time.deltaTime;
             speed -= Time.deltaTime * Drag;
             speed = Mathf.Clamp(speed, 0, MaxSpeed);

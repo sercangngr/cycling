@@ -19,11 +19,11 @@ public class Ardunio : UnitySingleton<Ardunio>
 
 	public class AInput
 	{
-		public const float LeftMostAngle = -90;
-		public const float RightMostAngle = 90;
+		public const float LeftMostAngle = 180;
+		public const float RightMostAngle = 0;
 
-		public const float LowestSpeed = 0;
-		public const float HighestSpeed = 100;
+		public const float LowestSpeed = 13;
+		public const float HighestSpeed = 900;
 
         // Between -1 and 1
 		public float normalizedHandleBarRotation;
@@ -44,7 +44,7 @@ public class Ardunio : UnitySingleton<Ardunio>
 
 	private void Start()
 	{
-		serialPortController = new SerialPortController("COM6", 57600);
+		serialPortController = new SerialPortController("COM7", 57600);
 		serialPortController.Launch();
 		Debug.Log("Open Port!");
 	}
@@ -96,10 +96,11 @@ public class Ardunio : UnitySingleton<Ardunio>
 		while(serialPortController.GetReceivedString(out rawData))
 		{
 			Debug.Log("Raw Data: " + rawData);
-			float rawRotation = 90;
-			float rawSpeed = 90;
+            string[] tokens = rawData.Split(',');
+			float rawRotation = float.Parse(tokens[0]);
+			float rawSpeed = float.Parse(tokens[1]);
 
-			float normalizedRotation = (rawRotation - AInput.LeftMostAngle) / (AInput.RightMostAngle - AInput.LeftMostAngle);
+            float normalizedRotation = (rawRotation - AInput.LeftMostAngle) / (AInput.RightMostAngle - AInput.LeftMostAngle);
 			float normalizedSpeed = (rawSpeed - AInput.LowestSpeed) / (AInput.HighestSpeed - AInput.LowestSpeed);
 
 			EventArdunioInput.Fire(new AInput(normalizedRotation, normalizedSpeed));
