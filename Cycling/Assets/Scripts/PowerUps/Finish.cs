@@ -1,9 +1,21 @@
-public class Finish : PowerUp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using System.IO;
+using System;
+using System.IO.Ports;
+using Kabuk;
+
+
+public class Finish : MonoBehaviour, PlayerTriggerListener
 {
-    public override void PickUp()
+    public void OnPlayerEnter(Player player)
     {
-        EventManager.finishReached.Invoke();
         GameState.EventGameOver.Fire();
-        base.PickUp();
+    }
+
+    public void OnPlayerExit(Player player)
+    {
     }
 }

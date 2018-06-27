@@ -106,6 +106,8 @@ public class Player : MonoBehaviour
             speed -= Time.deltaTime * Drag;
             speed = Mathf.Clamp(speed, 0, MaxSpeed);
 
+            Debug.Log("Speed: " + speed);
+
 			
 		}else
 		{

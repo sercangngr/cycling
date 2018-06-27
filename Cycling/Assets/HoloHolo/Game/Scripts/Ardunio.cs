@@ -100,10 +100,15 @@ public class Ardunio : UnitySingleton<Ardunio>
 			float rawRotation = float.Parse(tokens[0]);
 			float rawSpeed = float.Parse(tokens[1]);
 
+
             float normalizedRotation = (rawRotation - AInput.LeftMostAngle) / (AInput.RightMostAngle - AInput.LeftMostAngle);
 			float normalizedSpeed = (rawSpeed - AInput.LowestSpeed) / (AInput.HighestSpeed - AInput.LowestSpeed);
 
-			EventArdunioInput.Fire(new AInput(normalizedRotation, normalizedSpeed));
+            Debug.Log("Rawpeed" + rawSpeed + "normalizedSpeed: " + normalizedSpeed);
+
+
+
+            EventArdunioInput.Fire(new AInput(normalizedRotation, normalizedSpeed));
             
 		}
     }
