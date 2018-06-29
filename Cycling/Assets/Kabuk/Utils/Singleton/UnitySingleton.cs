@@ -22,8 +22,10 @@ namespace Kabuk
                 return instance;
             }
         }
-
-        protected virtual void Awake()
+        /// <summary>
+        ///  Don't override
+        /// </summary>
+        void Awake()
         {
             if (InstanceExists && instance != this)
             {
@@ -35,7 +37,14 @@ namespace Kabuk
                 {
                     DontDestroyOnLoad(this.gameObject);
                 }
+				instance = GetComponent<T>();
+                OnAwake();
             }
+        }
+
+        protected virtual void OnAwake()
+        {
+            
         }
 
         public static void TouchInstance()
