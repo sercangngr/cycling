@@ -7,8 +7,10 @@
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" }
+		Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" }
+        Blend SrcAlpha OneMinusSrcAlpha
 		LOD 100
+        Cull Off
 
 		Pass
 		{
@@ -50,7 +52,8 @@
 			{
 				// sample the texture
                 float4 tex = tex2D(_MainTex, i.uv);
-				fixed4 col = _Color * (1 - tex.a) + tex * tex.a;
+				fixed4 col = tex;
+                //_Color * (1 - tex.a) + tex * tex.a;
                 
 				// apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);
