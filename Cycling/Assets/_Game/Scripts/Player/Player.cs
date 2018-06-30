@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
     public Rigidbody rigid;
 	public GameObject torchlight;
 
-    private Vector3 currentVel = Vector3.zero;
 
 	Ardunio.AInput ardunioInput;
 
@@ -46,6 +45,11 @@ public class Player : MonoBehaviour
 	private void Update()
 	{
 		if (!state.started) { return; }
+		if(GameState.Instance.GameOver)
+		{
+			rigid.velocity = Vector3.zero;
+			return;
+		}
 
 		HandleInput();
 		UpdateState();

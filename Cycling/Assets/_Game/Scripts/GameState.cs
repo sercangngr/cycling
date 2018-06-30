@@ -12,41 +12,42 @@ public class GameState : UnitySingleton<GameState>
 
 	public PlayerState playerState;
 
+	public bool GameOver
+	{
+		private set; get;
+	}
+
     public void StartGame()
     {
+		GameOver = false;
 		playerState = new PlayerState();
-
 		EventStartGame.Fire(playerState);
         //SoundManager.instance.InGameAudio.Play();
 
     }
 
-    //IEnumerator Track()
-    //{
-    //    //bool run = true;
-    //    //while (run)
-    //    //{
-    //    //    timeLeft -= Time.deltaTime;
-    //    //    distanceLeft = Marks.Instance.GetDistance(player.transform.position);
-
-
-
-    //    //    if(timeLeft <= 0 || energyLeft <= 0 || distanceLeft < 0.5f)
-    //    //    {
-    //    //        EventGameOver.Fire();
-    //    //        run = false;
-    //    //    }
-    //    //    yield return null;
-    //    //}
-       
-    //}
 
     public int GetScore()
     {
 		return (int)(playerState.score + playerState.energyLeft * 2 + playerState.timeLeft * 2);
     }
 
+	private void OnEnable()
+	{
+		EventGameOver.Register(OnGameOver);
+	}
+
+	private void OnDisable()
+	{
+		EventGameOver.Unregister(OnGameOver);
+	}
+
+	void OnGameOver()
+	{
+		GameOver = true;
+	}
 
 
-	
+
+
 }

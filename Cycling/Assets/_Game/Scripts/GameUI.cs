@@ -88,7 +88,7 @@ public class GameUI : MonoBehaviour
 
 			timeText.text = "Kalan Süre " + ((int)playerState.timeLeft);
 			energyText.text = "Kalan Enerji " + ((int)playerState.energyLeft);
-			scoreText.text = "Skor\n" + playerState.score;
+			scoreText.text = "" + playerState.score;
 
             yield return null;
         }

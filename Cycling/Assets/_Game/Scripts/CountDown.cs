@@ -17,6 +17,7 @@ public class CountDown : MonoBehaviour
 	{
 		counterText.text = counter + "";
 		timer = counter;
+		Instantiate(gameUIPrefab);
 	}
 
 	private void Update()
@@ -28,7 +29,6 @@ public class CountDown : MonoBehaviour
 		if(timer <= 0)
 		{
 			Destroy(gameObject);
-			Instantiate(gameUIPrefab);
 			GameState.Instance.StartGame();
 		}
 	}

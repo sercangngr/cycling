@@ -10,6 +10,7 @@ public class Boulder : MonoBehaviour, PlayerTriggerListener
     public float consumedEnergy = 3;
    
 
+
     public void OnPlayerEnter(Player player)
     {
         RemoveMeshes();
