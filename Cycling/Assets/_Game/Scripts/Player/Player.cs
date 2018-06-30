@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
 		if(GameState.Instance.GameOver)
 		{
 			rigid.velocity = Vector3.zero;
+			speed = 0;
 			return;
 		}
 

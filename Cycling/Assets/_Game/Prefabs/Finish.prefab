@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4927767079058082}
-  - component: {fileID: 212865977939375448}
-  - component: {fileID: 114943535689143022}
   - component: {fileID: 65563054123378002}
+  - component: {fileID: 114737138335296838}
+  - component: {fileID: 212821685916656930}
   m_Layer: 0
   m_Name: Finish
   m_TagString: Untagged
@@ -35,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1731012436985098}
-  m_LocalRotation: {x: -0, y: -0.65368485, z: 0, w: -0.7567669}
-  m_LocalPosition: {x: -202.6, y: 55.15, z: -381.6}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalRotation: {x: -0, y: -0.586443, z: 0, w: -0.8099905}
+  m_LocalPosition: {x: -202.57, y: 55.15, z: -382.51}
+  m_LocalScale: {x: 0.30000007, y: 0.3, z: 0.30000007}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -278.36, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -288.19, z: 0}
 --- !u!65 &65563054123378002
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -52,9 +52,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 37.37999, y: 16.849998, z: 0.19999997}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114943535689143022
+  m_Size: {x: 93.8, y: 23.36, z: 8.63}
+  m_Center: {x: 0, y: 5.19, z: 2.99}
+--- !u!114 &114737138335296838
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -62,10 +62,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1731012436985098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b2893e4fd3228641b7d0be618a020ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 8357bf924c21b4d9680d1e6f2250283f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &212865977939375448
+--- !u!212 &212821685916656930
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1e39ca36654177e43ab8577af9120393, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,7 +104,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 0.2, y: 9.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
