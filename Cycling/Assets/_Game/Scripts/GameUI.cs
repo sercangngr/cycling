@@ -13,13 +13,10 @@ public class GameUI : MonoBehaviour
 
     public GameObject gameOverPrefab;
 
-
-    public Image timeBar;
     public Image energyBar;
     public Image distanceBar;
 
     public Text timeText;
-    public Text energyText;
     public Text scoreText;
 
 	void OnNewNotification(CollectableItem item)
@@ -80,14 +77,17 @@ public class GameUI : MonoBehaviour
 			float tDistance = Marks.Instance.GetDistance(playerState.position) / initDistance;
 
 
-            timeBar.fillAmount = tTime;
             energyBar.fillAmount = tEnergy;
 
 
             distanceBar.fillAmount = 1 - tDistance;
 
-			timeText.text = "Kalan Süre " + ((int)playerState.timeLeft);
-			energyText.text = "Kalan Enerji " + ((int)playerState.energyLeft);
+			int minute = (int)(playerState.timeLeft / 60);
+			minute = Mathf.Max(0, minute);
+			int seconds = (int)(playerState.timeLeft - minute * 60);
+			seconds = Mathf.Max(0, seconds);
+
+			timeText.text = FillDigits2(minute) + ":" + FillDigits2(seconds);
 			scoreText.text = "" + playerState.score;
 
             yield return null;
@@ -100,4 +100,16 @@ public class GameUI : MonoBehaviour
         Destroy(gameObject);
         Instantiate(gameOverPrefab);
     }
+
+
+    
+	public string FillDigits2(int number)
+	{
+		int n = number / 10;
+        if(n < 1)
+		{
+			return "0" + number;
+		}
+		return "" + number;
+	}
 }

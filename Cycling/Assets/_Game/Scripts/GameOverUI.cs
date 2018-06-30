@@ -32,16 +32,17 @@ public class GameOverUI : MonoBehaviour
 
         SetFacebook();
 
-		if(GameState.Instance.playerState.timeLeft <= 0)
-        {
-            headerText.text = "ÜZGÜNÜM ZAMANIN DOLDU SKORUN " + GameState.Instance.GetScore() + " PAYLAŞ";
-		}else if (GameState.Instance.playerState.energyLeft <= 0)
-        {
-            headerText.text = "ÜZGÜNÜM ENERJİN BİTTİ SKORUN " + GameState.Instance.GetScore() + "  PAYLAŞ";
-        }else
-        {
-            headerText.text = "TEBRİKLER İYİ BİR İŞ ÇIKARTTIN SKORU " + GameState.Instance.GetScore() + "  PAYLAŞ";
-        }
+		headerText.text = "SKORUN " + GameState.Instance.GetScore();// + " PAYLAŞ";
+		//if(GameState.Instance.playerState.timeLeft <= 0)
+  //      {
+  //          headerText.text = "ÜZGÜNÜM ZAMANIN DOLDU SKORUN " + GameState.Instance.GetScore() + " PAYLAŞ";
+		//}else if (GameState.Instance.playerState.energyLeft <= 0)
+        //{
+        //    headerText.text = "ÜZGÜNÜM ENERJİN BİTTİ SKORUN " + GameState.Instance.GetScore() + "  PAYLAŞ";
+        //}else
+        //{
+        //    headerText.text = "TEBRİKLER İYİ BİR İŞ ÇIKARTTIN SKORU " + GameState.Instance.GetScore() + "  PAYLAŞ";
+        //}
 	}
 
     string GetFacebookLink()
