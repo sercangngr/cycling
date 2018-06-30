@@ -31,6 +31,7 @@ public class GameUI : MonoBehaviour
         }
         
         GameObject not = Instantiate(notificationPrefab, notificationContainer);
+		not.GetComponent<Notification>().Setup(item.notificationName, item.notificationIcon);
 		not.GetComponentInChildren<Text>().text = item.notificationName;
         notifications.Add(not);
         StartCoroutine(RemoveNotification(not));

@@ -13,6 +13,8 @@ public class CollectableItem : ScriptableObject
 
 	public string notificationName;
 	public Texture texture;
+	public Sprite notificationIcon;
+
 	public Type type;
 	public float energy = 0;
 	public float score = 0;
