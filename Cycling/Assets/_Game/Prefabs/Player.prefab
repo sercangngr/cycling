@@ -357,9 +357,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1529015149138296}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.36, z: -0.75}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 1.08, z: -2.25}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4173863646394490}
   m_Father: {fileID: 4287506014215716}
@@ -385,8 +385,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1592921942461778}
-  m_LocalRotation: {x: 0, y: -0.6499125, z: 0, w: 0.7600091}
-  m_LocalPosition: {x: 190.88, y: 71.79, z: 8.8}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4960658050534408}
@@ -442,9 +442,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1184689005623742}
-  m_LocalRotation: {x: 0, y: 0.010122753, z: 0, w: 0.9999488}
-  m_LocalPosition: {x: 0, y: 1.195, z: -0.4999999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.585, z: -1.4999998}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4425863022619058}
   - {fileID: 4052803073433846}
@@ -454,7 +454,7 @@ Transform:
   - {fileID: 4200014402465524}
   m_Father: {fileID: 4287506014215716}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 1.16, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4996203805140246
 Transform:
   m_ObjectHideFlags: 1
@@ -462,7 +462,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1771197207526792}
   m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 1.71, z: -0.84}
+  m_LocalPosition: {x: 0, y: 5.01, z: -2.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4287506014215716}
@@ -1141,10 +1141,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 2.7
+  m_Radius: 0.66
+  m_Height: 2.68
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 2.37, z: -0.72}
 --- !u!222 &222209083838567894
 CanvasRenderer:
   m_ObjectHideFlags: 1

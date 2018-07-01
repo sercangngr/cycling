@@ -22,6 +22,8 @@ public class Collectable : MonoBehaviour,PlayerTriggerListener
 				transform.position = positionsContainer.GetChild(randomPos).position;
             }
         }
+
+		AdjustPosition();
 	}
 
 
@@ -68,5 +70,19 @@ public class Collectable : MonoBehaviour,PlayerTriggerListener
 	public void OnPlayerExit(Player player)
 	{
 		
+	}
+
+	void AdjustPosition()
+	{
+		Ray ray = new Ray(transform.position + Vector3.up, Vector3.down);
+		RaycastHit hit;
+		if(Physics.Raycast(ray, out hit, 4))
+		{
+			Debug.Log("Holo: " + hit.point);
+			transform.position = hit.point;
+		}else
+		{
+			Debug.LogError("Misplaced Collectable");
+		}
 	}
 }
