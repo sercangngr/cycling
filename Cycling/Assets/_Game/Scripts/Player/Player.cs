@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 	public PlayerState state;
     public Rigidbody rigid;
 	public GameObject torchlight;
+	public Transform tireTransform;
 
 
 	Ardunio.AInput ardunioInput;
@@ -54,6 +55,14 @@ public class Player : MonoBehaviour
 
 		HandleInput();
 		UpdateState();
+
+
+		//Quaternion tireRot = Quaternion.AngleAxis(50 * speed * Time.deltaTime, Vector3.left);
+		//tireTransform.localRotation = tireRot * tireTransform.localRotation;
+
+		Vector3 tireRot = tireTransform.localRotation.eulerAngles;
+		tireRot.z += 50 * speed * Time.deltaTime;
+		tireTransform.localRotation = Quaternion.Euler(tireRot);
 	}
 
 	void UpdateState()
