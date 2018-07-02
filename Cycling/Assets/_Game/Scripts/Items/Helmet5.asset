@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f27deab5f01d8484eb7391c605c17231, type: 3}
-  m_Name: Helmet3
+  m_Name: Helmet5
   m_EditorClassIdentifier: 
-  text: "500 DA\u011E B\u0130S\u0130KLET\u0130 KASKI - Fluo B'TWIN"
-  sprite: {fileID: 21300000, guid: bcf5c2b2e3113d94abf1a6bf99f37137, type: 3}
+  text: "ST 500 DA\u011E B\u0130S\u0130KLET\u0130 KASKI - K\u0131rm\u0131z\u0131 B'TWIN"
+  sprite: {fileID: 21300000, guid: 30ca53d2e70ef6f48b98f57c895188a9, type: 3}

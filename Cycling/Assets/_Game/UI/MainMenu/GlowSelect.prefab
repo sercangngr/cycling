@@ -518,9 +518,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 453f6acb0f2984d1db889ebef06c5074, type: 2}
-  - {fileID: 11400000, guid: fadadd5667e534e66aebbaae3bf43b84, type: 2}
-  - {fileID: 11400000, guid: 29cdb4bd49373467c91a44557b68ff4e, type: 2}
+  - {fileID: 11400000, guid: 02a9f7ea2c21244a0a79c2708dac7d5b, type: 2}
+  - {fileID: 11400000, guid: 03cf023f5729d4064a38e303bb8d43ec, type: 2}
+  - {fileID: 11400000, guid: 897a3817d24134313928aeef8e3621af, type: 2}
   selectedItemImage: {fileID: 114563747337669450}
   selectedItemText: {fileID: 114122897919319068}
 --- !u!114 &114772714459110564
@@ -760,10 +760,10 @@ RectTransform:
   m_Father: {fileID: 224259602471551698}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 85.8}
+  m_SizeDelta: {x: 638.1, y: 619.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224664707379329574
 RectTransform:

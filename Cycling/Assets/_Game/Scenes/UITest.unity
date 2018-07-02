@@ -263,6 +263,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114352704964525170, guid: f263c482979104a9682d72a98f92aa1c,
+        type: 2}
+      propertyPath: pagePrefabs.Array.size
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4044776714905750, guid: f263c482979104a9682d72a98f92aa1c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -318,6 +323,24 @@ Prefab:
       propertyPath: pagePrefabs.Array.data[5]
       value: 
       objectReference: {fileID: 1876696510385520, guid: 2e5495a312f98425d879c21007691566,
+        type: 2}
+    - target: {fileID: 114352704964525170, guid: f263c482979104a9682d72a98f92aa1c,
+        type: 2}
+      propertyPath: pagePrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 1459415071123830, guid: 94a53d49ea07f473c9c617aa4ccf60b4,
+        type: 2}
+    - target: {fileID: 114352704964525170, guid: f263c482979104a9682d72a98f92aa1c,
+        type: 2}
+      propertyPath: pagePrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 1949947585565278, guid: deda030c396e14e1fb16faf08ece9a27,
+        type: 2}
+    - target: {fileID: 114352704964525170, guid: f263c482979104a9682d72a98f92aa1c,
+        type: 2}
+      propertyPath: pagePrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 1158228583561512, guid: 1a0edcaf628374d8abd970ebd3ec714e,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f263c482979104a9682d72a98f92aa1c, type: 2}

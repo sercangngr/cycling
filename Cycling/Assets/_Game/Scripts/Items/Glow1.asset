@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27deab5f01d8484eb7391c605c17231, type: 3}
   m_Name: Glow1
   m_EditorClassIdentifier: 
-  text: 
-  sprite: {fileID: 0}
+  text: ROADC 100 Bisiklet Eldiveni
+  sprite: {fileID: 21300000, guid: 29b4df50fff86814aa1f94643e5ce80f, type: 3}

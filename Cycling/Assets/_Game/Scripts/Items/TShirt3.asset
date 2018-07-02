@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27deab5f01d8484eb7391c605c17231, type: 3}
   m_Name: TShirt3
   m_EditorClassIdentifier: 
-  text: Jersey Mavi Siyah
-  sprite: {fileID: 21300000, guid: 281e8c8b796e8064090eb0e138d31a9a, type: 3}
+  text: "Ya\u011Fmurluk 100 Diva"
+  sprite: {fileID: 21300000, guid: 1d63007823ca42c4fb907ef3008c6637, type: 3}
