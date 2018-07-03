@@ -47,6 +47,10 @@ public class Ardunio : UnitySingleton<Ardunio>
 		serialPortController = new SerialPortController("COM7", 57600);
         serialPortController.Launch();
         Debug.Log("Open Port!");
+
+        int height = Screen.height;
+        int width = (int)(Screen.height * (9.0f / 16.0f));
+        Screen.SetResolution(width, height, true);
 	}
 
 	private void OnDestroy()
