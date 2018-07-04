@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Collectable : MonoBehaviour,PlayerTriggerListener
 {
 	public CollectableItem item;
-	public MeshRenderer itemMesh;
+	public Image itemImage;
 	public GameObject particleEffect;
 	public GameObject platform;
 
@@ -13,7 +14,7 @@ public class Collectable : MonoBehaviour,PlayerTriggerListener
 
 	private void Awake()
 	{
-		itemMesh.material.mainTexture = item.texture;
+		itemImage.sprite = item.sprite;
 		if (positionsContainer.childCount != 0)
         {
 			int randomPos = Random.Range(0, positionsContainer.childCount + 1);
@@ -61,7 +62,12 @@ public class Collectable : MonoBehaviour,PlayerTriggerListener
 		}
         
 		GetComponent<AudioSource>().Play();
-		Destroy(itemMesh);
+		Destroy(GetComponentInChildren<Canvas>().gameObject);
+		foreach(MeshRenderer mr in GetComponentsInChildren<MeshRenderer>())
+		{
+			Destroy(mr);
+		}
+		Destroy(particleEffect);
 		Destroy(gameObject,2f);
 		Destroy(this);
 

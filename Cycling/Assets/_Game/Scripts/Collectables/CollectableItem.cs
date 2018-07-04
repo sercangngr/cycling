@@ -12,7 +12,7 @@ public class CollectableItem : ScriptableObject
 	}
 
 	public string notificationName;
-	public Texture texture;
+	public Sprite sprite;
 	public Sprite notificationIcon;
 
 	public Type type;

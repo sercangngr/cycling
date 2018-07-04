@@ -45,7 +45,12 @@ public class CollectableHoverEffect : MonoBehaviour
 
     private void Update()
     {
-        transform.forward = transform.position - cam.position;
+
+		transform.LookAt(Camera.main.transform);
+		Vector3 rot = transform.rotation.eulerAngles;
+		rot.z = 0;
+		rot.x = 0;
+		transform.rotation = Quaternion.Euler(rot);
     }
 
 }
