@@ -21,9 +21,8 @@ public class Boulder : MonoBehaviour, PlayerTriggerListener
         }
 
         player.state.energyLeft -= consumedEnergy;
-        player.state.speedEffectorCounter++;
-        player.state.speedMultiplier = speedMultiplier;
-
+		player.state.speedMultiplier.Push(speedMultiplier);
+        
     }
 
     void RemoveMeshes()
@@ -33,6 +32,6 @@ public class Boulder : MonoBehaviour, PlayerTriggerListener
 
     public void OnPlayerExit(Player player)
     {
-        player.state.speedEffectorCounter--;
+		player.state.speedMultiplier.Pop();
     }
 }

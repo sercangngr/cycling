@@ -13,8 +13,7 @@ public class RainyArea : MonoBehaviour, PlayerTriggerListener
 		player.state.insideRain = true;
 		if(!player.state.hasRainCoat)
 		{
-			player.state.speedEffectorCounter++;
-			player.state.speedMultiplier = speedMultiplier;
+			player.state.speedMultiplier.Push(speedMultiplier);
         }
 	}
 
@@ -23,7 +22,7 @@ public class RainyArea : MonoBehaviour, PlayerTriggerListener
 		player.state.insideRain = false;
 		if(!player.state.hasRainCoat)
 		{
-			player.state.speedEffectorCounter--;
+			player.state.speedMultiplier.Pop();
         }
 	}
     

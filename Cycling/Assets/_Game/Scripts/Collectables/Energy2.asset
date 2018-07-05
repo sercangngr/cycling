@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationName: Enerji
   sprite: {fileID: 21300000, guid: 74a02400f72ffbf45adf1cc63942b467, type: 3}
-  notificationIcon: {fileID: 21300000, guid: a23ab42dc5ca130428062816b0f2c134, type: 3}
+  notificationIcon: {fileID: 21300000, guid: 425462cf2857996429134a783f92b31f, type: 3}
   type: 2
   energy: 4
   score: 0
