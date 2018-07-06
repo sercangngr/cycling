@@ -22,7 +22,7 @@ public class GameState : UnitySingleton<GameState>
 		GameOver = false;
 		playerState = new PlayerState();
 		EventStartGame.Fire(playerState);
-        //SoundManager.instance.InGameAudio.Play();
+        Sound.instance.InGameAudio.Play();
 
     }
 
@@ -45,7 +45,12 @@ public class GameState : UnitySingleton<GameState>
 	void OnGameOver()
 	{
 		GameOver = true;
-	}
+
+        if (Sound.instance.InGameAudio.isPlaying)
+        {
+            Sound.instance.InGameAudio.Stop();
+        }
+    }
 
 
 
