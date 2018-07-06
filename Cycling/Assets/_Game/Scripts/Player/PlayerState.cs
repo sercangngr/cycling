@@ -25,8 +25,8 @@ public class PlayerState
 	public float timeLeft = 250;
 	public float energyLeft = 300;
 
-	public float speedMultiplier = 1;
-	public int speedEffectorCounter = 0;
+
+	public Stack<float> speedMultiplier = new Stack<float>();
 
 
 }

@@ -6,14 +6,9 @@ using Kabuk;
 
 public class CollectableHoverEffect : MonoBehaviour 
 {
-    Transform cam;
-
-    
 
 	private IEnumerator Start()
 	{
-        cam = Camera.main.transform;
-
 		float duration = 1f;
 		float distance = 0.5f;
 		float timer = duration / 2;

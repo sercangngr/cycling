@@ -37,7 +37,7 @@ public class GameUI : MonoBehaviour
 
     public IEnumerator RemoveNotification(GameObject not)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3.5f);
         if(notifications.Remove(not))
         {
             Destroy(not);
@@ -72,7 +72,6 @@ public class GameUI : MonoBehaviour
 
         while(this != null && enabled)
         {
-			float tTime = playerState.timeLeft / initTime;
 			float tEnergy = playerState.energyLeft / initEnergy;
 			float tDistance = Marks.Instance.GetDistance(playerState.position) / initDistance;
 

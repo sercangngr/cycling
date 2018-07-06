@@ -304,7 +304,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1732986680974748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.15}
+  m_LocalPosition: {x: 2.76, y: 0, z: 3.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4967175751130070}
@@ -361,8 +361,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1645227316750910}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.032291412, z: 1.4}
-  m_LocalScale: {x: 0.33333358, y: 0.3333342, z: 0.33333406}
+  m_LocalPosition: {x: 0, y: 1.18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4390219821971006}
   m_Father: {fileID: 4865129366053422}
@@ -474,7 +474,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!82 &82935891135974490
 AudioSource:
@@ -623,7 +623,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a775baffbbe0dd543a9726d7c5f507fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a56887d88a80c6f40a3d7dddb16ff22b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7473,7 +7473,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 830767401
+  randomSeed: -275960646
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10834,7 +10834,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 432555285
+  randomSeed: -282330332
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -14384,8 +14384,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3.5}
-  m_SizeDelta: {x: 4, y: 4}
+  m_AnchoredPosition: {x: 0, y: 3.86}
+  m_SizeDelta: {x: 3.5, y: 3.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224267439216592736
 RectTransform:

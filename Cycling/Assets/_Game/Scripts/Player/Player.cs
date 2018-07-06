@@ -146,10 +146,12 @@ public class Player : MonoBehaviour
 	private void FixedUpdate()
 	{
 		float s = speed;
-		if (state.speedEffectorCounter > 0)
+		if (state.speedMultiplier.Count > 0)
         {
-            s *= state.speedMultiplier;
+			s *= state.speedMultiplier.Peek();
         }
+
+
 		Vector3 vel = s * handleBar.transform.forward;
 		vel.y = rigid.velocity.y;
 		rigid.velocity = vel;

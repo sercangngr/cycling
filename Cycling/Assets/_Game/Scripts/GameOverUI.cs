@@ -7,8 +7,11 @@ using UnityEngine.UI;
 public class GameOverUI : MonoBehaviour 
 {
     public Image qrCode;
-    public Text headerText;
-    public Text text;
+	public Image background;
+	public Sprite facebookBackground;
+	public Sprite twitterBackground;
+
+    public Text scoreText;
 
     Sprite facebookQr;
     Sprite twitterQr;
@@ -32,7 +35,7 @@ public class GameOverUI : MonoBehaviour
 
         SetFacebook();
 
-		headerText.text = "SKORUN " + GameState.Instance.GetScore();// + " PAYLAŞ";
+		scoreText.text = "" + GameState.Instance.GetScore();// + " PAYLAŞ";
 		//if(GameState.Instance.playerState.timeLeft <= 0)
   //      {
   //          headerText.text = "ÜZGÜNÜM ZAMANIN DOLDU SKORUN " + GameState.Instance.GetScore() + " PAYLAŞ";
@@ -109,13 +112,13 @@ public class GameOverUI : MonoBehaviour
 
     void SetFacebook()
     {
-        text.text = facebookText;
+		background.sprite = facebookBackground;
         qrCode.sprite = facebookQr;
     }
 
     void SetTwitter()
     {
-        text.text = twitterText;
+		background.sprite = twitterBackground;
         qrCode.sprite = twitterQr;
     }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationName: Bonus Puan
   sprite: {fileID: 21300000, guid: c08621c4fe316754caeb2310736039c7, type: 3}
-  notificationIcon: {fileID: 21300000, guid: c08621c4fe316754caeb2310736039c7, type: 3}
+  notificationIcon: {fileID: 21300000, guid: d8302ef6fe330f846848b0213d30c200, type: 3}
   type: 5
   energy: 0
   score: 100
