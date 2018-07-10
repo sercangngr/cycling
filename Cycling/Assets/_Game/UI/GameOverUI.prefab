@@ -94,8 +94,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   qrCode: {fileID: 114801185449313820}
   background: {fileID: 114347602644078378}
-  facebookBackground: {fileID: 21300000, guid: 5ce6c4f99a5006245b5f4ca7b41e7d67, type: 3}
-  twitterBackground: {fileID: 21300000, guid: 3b556d13a72cb6d4e8edc6bba5fc3e74, type: 3}
+  facebookBackground: {fileID: 21300000, guid: dd391e6c476104745b3b371760a9722d, type: 3}
+  twitterBackground: {fileID: 21300000, guid: a650ff74db2974c69ac130d111550a75, type: 3}
   scoreText: {fileID: 114123008085536914}
 --- !u!114 &114089202377853590
 MonoBehaviour:
@@ -165,7 +165,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3b556d13a72cb6d4e8edc6bba5fc3e74, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd391e6c476104745b3b371760a9722d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
