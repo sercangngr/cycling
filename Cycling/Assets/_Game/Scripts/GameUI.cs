@@ -12,6 +12,7 @@ public class GameUI : MonoBehaviour
     List<GameObject> notifications = new List<GameObject>();
 
     public GameObject gameOverPrefab;
+	public GameObject itemFeedbackPrefab;
 
     public Image energyBar;
     public Image distanceBar;
@@ -34,6 +35,12 @@ public class GameUI : MonoBehaviour
 		not.GetComponentInChildren<Text>().text = item.notificationName;
         notifications.Add(not);
         StartCoroutine(RemoveNotification(not));
+
+		if(item.score > 0 || item.energy > 0 || item.time > 0)
+		{
+			Instantiate(itemFeedbackPrefab).GetComponent<ItemFeedback>().Setup(item);
+        }
+        
 
     }
 
