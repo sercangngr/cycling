@@ -82,13 +82,16 @@ public class Collectable : MonoBehaviour,PlayerTriggerListener
 	{
 		Ray ray = new Ray(transform.position + Vector3.up, Vector3.down);
 		RaycastHit hit;
-		if(Physics.Raycast(ray, out hit, 4))
+		if (Physics.Raycast(ray, out hit, 4))
 		{
-			Debug.Log("Holo: " + hit.point);
 			transform.position = hit.point;
-		}else
+		}
+		else
 		{
-			Debug.LogError("Misplaced Collectable");
+			Debug.LogError("Misplaced Collectable name: " + gameObject.name + " index: " + gameObject.transform.GetSiblingIndex());
+#if UNITY_EDITOR
+			UnityEditor.EditorGUIUtility.PingObject(gameObject);
+#endif
 		}
 	}
 }

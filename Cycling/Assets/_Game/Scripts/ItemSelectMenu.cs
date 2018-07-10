@@ -17,7 +17,9 @@ public class ItemSelectMenu : MonoBehaviour
 
     void SetSelected(int index)
     {
-		itemIndex = (itemIndex + 1) % items.Length;
+		if (index < 0) { index = items.Length - 1; }
+		index %= items.Length;
+		itemIndex = index;
         selectedItemImage.sprite = items[itemIndex].sprite;
         selectedItemText.text = items[itemIndex].text;
     }
