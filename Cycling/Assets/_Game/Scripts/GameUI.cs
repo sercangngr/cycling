@@ -17,7 +17,9 @@ public class GameUI : MonoBehaviour
     public Image distanceBar;
 
     public Text timeText;
-    public Text scoreText;
+	public Text scoreText;
+
+
 
 	void OnNewNotification(CollectableItem item)
     {

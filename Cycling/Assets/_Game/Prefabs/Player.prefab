@@ -1030,8 +1030,8 @@ MonoBehaviour:
   transparent: {r: 0, g: 0, b: 0, a: 0}
   tunnelBlack: {r: 0, g: 0, b: 0, a: 0.7}
   rainBlack: {r: 0, g: 0, b: 0, a: 0.3}
-  green: {r: 0, g: 1, b: 0, a: 0.2}
-  blue: {r: 0, g: 0, b: 1, a: 0.2}
+  green: {r: 0, g: 1, b: 0.50344825, a: 0.2}
+  blue: {r: 0, g: 0.7103448, b: 1, a: 0.2}
   player: {fileID: 114840256765015214}
   effectImage: {fileID: 114527685413488288}
   gradiendEffectImage: {fileID: 114514024003043012}
@@ -1120,8 +1120,6 @@ MonoBehaviour:
     score: 0
     timeLeft: 250
     energyLeft: 300
-    speedMultiplier: 1
-    speedEffectorCounter: 0
   rigid: {fileID: 54066974331673756}
   torchlight: {fileID: 1070839829817190}
   tireTransform: {fileID: 4253869452821154}
