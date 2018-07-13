@@ -60,7 +60,7 @@ public class PlayerCameraEffects : MonoBehaviour
 		}else
 		{
 			gradiendEffectImage.color = blue;
-			yield return new WaitForSeconds(1.3f);
+			yield return new WaitForSeconds(0.5f);
 			gradiendEffectImage.color = transparent;
         }
 		

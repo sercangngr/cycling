@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a073447fe69f4d4e8f06d6956b87670, type: 3}
   m_Name: ExtraTime2
   m_EditorClassIdentifier: 
-  notificationName: Ekstra Zaman
+  notificationName: W900 Black
   sprite: {fileID: 21300000, guid: cd89751da67f9bb40805065687a4f3a4, type: 3}
   notificationIcon: {fileID: 21300000, guid: 01a71fce7ed354413a11ac1fdd04be00, type: 3}
   type: 1

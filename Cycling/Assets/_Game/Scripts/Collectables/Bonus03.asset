@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a073447fe69f4d4e8f06d6956b87670, type: 3}
   m_Name: Bonus03
   m_EditorClassIdentifier: 
-  notificationName: Bonus Puan
+  notificationName: Hydra Bag
   sprite: {fileID: 21300000, guid: c08621c4fe316754caeb2310736039c7, type: 3}
   notificationIcon: {fileID: 21300000, guid: d8302ef6fe330f846848b0213d30c200, type: 3}
   type: 5

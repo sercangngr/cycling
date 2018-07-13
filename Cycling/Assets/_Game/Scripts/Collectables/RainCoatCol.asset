@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a073447fe69f4d4e8f06d6956b87670, type: 3}
   m_Name: RainCoatCol
   m_EditorClassIdentifier: 
-  notificationName: "Ya\u011Fmurluk"
+  notificationName: Aprenaz Rain Jacket
   sprite: {fileID: 21300000, guid: ae6b7dbfb2afdc74295d2a4429d33fd1, type: 3}
   notificationIcon: {fileID: 21300000, guid: 75227152521c92e40961a7953b302a9d, type: 3}
   type: 0
