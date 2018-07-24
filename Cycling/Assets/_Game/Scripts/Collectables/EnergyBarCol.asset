@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a073447fe69f4d4e8f06d6956b87670, type: 3}
   m_Name: EnergyBarCol
   m_EditorClassIdentifier: 
-  notificationName: Enerji
+  notificationName: Berrie Crrenberries
   sprite: {fileID: 21300000, guid: a56887d88a80c6f40a3d7dddb16ff22b, type: 3}
   notificationIcon: {fileID: 21300000, guid: 08d9eb84389942840ab5769c74ab9a3b, type: 3}
   type: 2
