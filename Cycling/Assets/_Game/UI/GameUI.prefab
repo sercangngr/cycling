@@ -434,6 +434,7 @@ MonoBehaviour:
     type: 2}
   itemFeedbackPrefab: {fileID: 1532247499966560, guid: 1d9f0ffec3e2945b49a6c5463efa5db0,
     type: 2}
+  settings: {fileID: 1535792263917912, guid: d900b374bbbd645eca369c8b0af57af8, type: 2}
   energyBar: {fileID: 114932051107110352}
   distanceBar: {fileID: 114177789889814048}
   timeText: {fileID: 114988002674217990}

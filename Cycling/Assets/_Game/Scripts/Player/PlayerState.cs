@@ -29,4 +29,11 @@ public class PlayerState
 	public Stack<float> speedMultiplier = new Stack<float>();
 
 
+	public PlayerState()
+	{
+		timeLeft = Settings.InitTime;
+		energyLeft = Settings.InitEnergy;
+	}
+
+
 }

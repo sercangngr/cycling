@@ -20,8 +20,6 @@ public class GameUI : MonoBehaviour
     public Text timeText;
 	public Text scoreText;
 
-
-
 	void OnNewNotification(CollectableItem item)
     {
         if(notifications.Count == 3)
@@ -40,7 +38,6 @@ public class GameUI : MonoBehaviour
 		{
 			Instantiate(itemFeedbackPrefab).GetComponent<ItemFeedback>().Setup(item);
         }
-        
 
     }
 
@@ -52,8 +49,6 @@ public class GameUI : MonoBehaviour
             Destroy(not);
         }
     }
-
-
 
 	private void OnEnable()
 	{
@@ -108,9 +103,8 @@ public class GameUI : MonoBehaviour
         Destroy(gameObject);
         Instantiate(gameOverPrefab);
     }
+ 
 
-
-    
 	public string FillDigits2(int number)
 	{
 		int n = number / 10;
