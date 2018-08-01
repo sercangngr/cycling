@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224166249193609164}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberText: {fileID: 114148813277211022}
   contentText: {fileID: 114081672625991748}
+  container: {fileID: 224166249193609164}
 --- !u!114 &114790789707679334
 MonoBehaviour:
   m_ObjectHideFlags: 1

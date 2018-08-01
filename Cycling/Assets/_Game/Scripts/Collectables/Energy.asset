@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a073447fe69f4d4e8f06d6956b87670, type: 3}
   m_Name: Energy
   m_EditorClassIdentifier: 
-  notificationName: QUECHUA Water Bottle
+  notificationName: "Quechua Su \u015Ei\u015Fesi 1lt"
   sprite: {fileID: 21300000, guid: 4214c72d0d16e8246a49fc8ca8a6df3c, type: 3}
   notificationIcon: {fileID: 21300000, guid: 88e30c2c472976e49a7edcc4ed7be7e1, type: 3}
   type: 2

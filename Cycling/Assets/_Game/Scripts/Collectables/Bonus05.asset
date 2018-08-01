@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a073447fe69f4d4e8f06d6956b87670, type: 3}
   m_Name: Bonus05
   m_EditorClassIdentifier: 
-  notificationName: ST 100
+  notificationName: "B'twin ST 100 G\xF6zl\xFCk "
   sprite: {fileID: 21300000, guid: a7a622d3e8c357342ab21fc3997fc0c7, type: 3}
   notificationIcon: {fileID: 21300000, guid: c0e06ea63969247fc861602c86ae6b1b, type: 3}
   type: 5

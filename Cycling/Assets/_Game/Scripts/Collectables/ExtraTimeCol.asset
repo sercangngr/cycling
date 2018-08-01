@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a073447fe69f4d4e8f06d6956b87670, type: 3}
   m_Name: ExtraTimeCol
   m_EditorClassIdentifier: 
-  notificationName: W200S Purpe-Pink
+  notificationName: 'Kalenji W200 S Kol Saati '
   sprite: {fileID: 21300000, guid: dc1ab02247e4f4742a31556980919556, type: 3}
   notificationIcon: {fileID: 21300000, guid: aaed401445bc74883997ab1222a7c839, type: 3}
   type: 1

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a073447fe69f4d4e8f06d6956b87670, type: 3}
   m_Name: Bonus04
   m_EditorClassIdentifier: 
-  notificationName: Roader 900 Red
+  notificationName: "B'twin ROADR 900 G\xF6zl\xFCk"
   sprite: {fileID: 21300000, guid: a775baffbbe0dd543a9726d7c5f507fd, type: 3}
   notificationIcon: {fileID: 21300000, guid: 7bf71135eddd1405ab65f8ce4649dfd2, type: 3}
   type: 5

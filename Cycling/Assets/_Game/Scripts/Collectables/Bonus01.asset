@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a073447fe69f4d4e8f06d6956b87670, type: 3}
   m_Name: Bonus01
   m_EditorClassIdentifier: 
-  notificationName: Geye 500
+  notificationName: 
   sprite: {fileID: 21300000, guid: 11b4f69dca4f78a49b9675696134eee4, type: 3}
   notificationIcon: {fileID: 21300000, guid: c733b953dbe735841a588b9d7aa471d5, type: 3}
   type: 5
