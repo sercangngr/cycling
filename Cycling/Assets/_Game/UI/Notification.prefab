@@ -101,7 +101,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: fae067962e5934395be31c8aba4a3455, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 212
     m_Alignment: 4
@@ -110,7 +110,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "B'twin ROADR 900 G\xF6zl\xFCkkkkkkkkkkkkk"
 --- !u!114 &114193648451086492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -268,6 +268,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49.09, y: 0.0000038146486}
-  m_SizeDelta: {x: 150, y: 50}
+  m_AnchoredPosition: {x: 51.01, y: 0.0000038146486}
+  m_SizeDelta: {x: 146.17, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
